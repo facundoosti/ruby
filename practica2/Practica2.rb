@@ -36,9 +36,32 @@ def fib num
 end
 
 #ejercicio 3
-#ejercicio 4
-#ejercicio 5
 
+def palindromo? num
+	if num.to_s.size % 2 == 0
+		primera_mitad = num.to_s[0, num.to_s.size / 2]
+		segunda_mitad = num.to_s[num.to_s.size / 2 , num.to_s.size + 1].reverse
+		primera_mitad == segunda_mitad
+	end
+end
+
+
+
+#ejercicio 4
+def nro_divisible
+	a=[]
+	(1..3000).each do |e|
+	 	if (1..10).all? {|r| (e % r == 0)  }
+	 		a.push e
+	 		break
+	 	end	
+	end
+	a.first
+end
+#ejercicio 5
+def resta
+	(1..100).inject  {|s,m| s + m}**2 - (1..100).inject  {|s,m| s + m**2} 
+end
 #ejercicio 6
 def primo num 
 	Prime.first(num).last
