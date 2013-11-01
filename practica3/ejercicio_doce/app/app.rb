@@ -1,3 +1,6 @@
+require 'bundler'
+Bundler.require
+
 class App < Sinatra::Base
 
   helpers do
@@ -10,12 +13,8 @@ class App < Sinatra::Base
     end
   end
 
-  configure do
-    set :views, 'app/views'
+  get '/' do
+    erb :index
   end
-
-  configure :development do
-    register Sinatra::Reloader
-  end 
 
 end
