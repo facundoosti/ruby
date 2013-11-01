@@ -1,0 +1,14 @@
+module FormCreate
+
+helpers do
+	def form hash, &block
+		'<form method="post" action='+hash[:action]+'><input type="hiden" name="_method"/>'+ yield(block)+'</form>'
+	end
+	
+
+	def submit name
+		'<input type="submit" value='+name+'>'
+	end
+end
+
+helpers FormCreate

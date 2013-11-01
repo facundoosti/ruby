@@ -1,0 +1,22 @@
+Preguntas del examen:
+1) Cual de estos modulos no pertenecen a una libreria de Test-Ruby:
+a)RSpec
+b)Minitest
+c)Bacon
+d)Mysql
+
+
+2)Si tuvieramos el siguiente modulo:
+
+def metodo a, &b
+	yield b
+end
+
+Cual seria la forma correcta de pasarle los argumentos:
+a)metodo "a" , {}
+b)metodo "a" {}
+c)metodo("a") {}
+d)metodo{}("a")
+e)metodo{},("a")
+
+3)
