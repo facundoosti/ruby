@@ -1,0 +1,18 @@
+require 'rake/testtask'
+require 'micro_migrations'
+
+
+Rake::TestTask.new('test') do |t|
+  t.libs << "./app/models"
+  t.test_files = FileList['test/**/*_test.rb']
+end
+
+desc 'Start a console'
+task :console do
+  ENV['RACK_ENV'] ||= 'development'
+  %w(irb irb/completion).each { |r| require r }
+  require_relative 'config/application'
+
+  ARGV.clear
+  IRB.start
+end

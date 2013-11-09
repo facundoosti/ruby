@@ -1,0 +1,326 @@
+  [1m[36m (348.3ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (363.0ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateRequests (20131105114800)
+  [1m[35m (83.8ms)[0m  CREATE TABLE `requests` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `price` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (184.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131105114800')
+  [1m[36m (141.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (32.9ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (83.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateResources (20131105114801)
+  [1m[35m (33.0ms)[0m  CREATE TABLE `requests` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+Mysql2::Error: Table 'requests' already exists: CREATE TABLE `requests` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateResources (20131105114801)
+  [1m[35m (0.5ms)[0m  CREATE TABLE `requests` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+Mysql2::Error: Table 'requests' already exists: CREATE TABLE `requests` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mActiveRecord::SchemaMigration Load (213.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateResources (20131105114801)
+  [1m[35m (290.3ms)[0m  CREATE TABLE `resources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (19.8ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131105114801')
+  [1m[36m (42.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.6ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+Migrating to CreateResources (20131105114801)
+  [1m[36m (130.7ms)[0m  [1mDROP TABLE `resources`[0m
+  [1m[35mSQL (45.3ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20131105114801'
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+Migrating to CreateRequests (20131105114800)
+  [1m[36m (146.7ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (365.7ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateRequests (20131108142800)
+  [1m[35m (89.6ms)[0m  CREATE TABLE `requests` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `price` varchar(255), `disoccupation_date` datetime, `occupancy_date` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (343.7ms)[0m  [1mALTER TABLE `requests` DROP `name`[0m
+  [1m[35m (236.4ms)[0m  ALTER TABLE `requests` DROP `price`
+  [1m[36m (1.1ms)[0m  [1mALTER TABLE `requests` ADD `disoccupation_date` datetime[0m
+Mysql2::Error: Duplicate column name 'disoccupation_date': ALTER TABLE `requests` ADD `disoccupation_date` datetime
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateRequests (20131108142800)
+  [1m[35m (0.7ms)[0m  CREATE TABLE `requests` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `state_request_id` int(11), `occupancy_date` datetime, `disoccupation_date` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+Mysql2::Error: Table 'requests' already exists: CREATE TABLE `requests` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `state_request_id` int(11), `occupancy_date` datetime, `disoccupation_date` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (254.6ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (242.9ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateRequests (20131108142800)
+  [1m[35m (73.6ms)[0m  CREATE TABLE `requests` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `state_request_id` int(11), `occupancy_date` datetime, `disoccupation_date` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (11.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108142800')
+  [1m[36m (50.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateResources (20131108143600)
+  [1m[35m (97.8ms)[0m  CREATE TABLE `resources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` varchar(255), `state_resource_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.6ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (19.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108143600')
+  [1m[36m (58.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.6ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to ChangeRequests (20131108161300)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to ChangeRequests (20131108161300)
+  [1m[35m (298.0ms)[0m  ALTER TABLE `requests` ADD `resource_id_id` int(11)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108161300')
+  [1m[36m (32.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.8ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (33.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+Migrating to ChangeRequests (20131108161300)
+  [1m[36m (329.9ms)[0m  [1mALTER TABLE `requests` DROP `resource_id_id`[0m
+  [1m[35mSQL (71.6ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20131108161300'
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+Migrating to CreateResources (20131108143600)
+  [1m[36m (60.5ms)[0m  [1mDROP TABLE `resources`[0m
+  [1m[35mSQL (31.6ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20131108143600'
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+Migrating to CreateRequests (20131108142800)
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE `requests` DROP `resource_id_id`[0m
+Mysql2::Error: Can't DROP 'resource_id_id'; check that column/key exists: ALTER TABLE `requests` DROP `resource_id_id`
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateResources (20131108143600)
+  [1m[35m (103.2ms)[0m  CREATE TABLE `resources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` varchar(255), `state_resource_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108143600')
+  [1m[36m (35.6ms)[0m  [1mCOMMIT[0m
+Migrating to ChangeRequests (20131108161300)
+  [1m[35m (249.4ms)[0m  ALTER TABLE `requests` ADD `resource_id_id` int(11)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108161300')
+  [1m[36m (43.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.8ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (33.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+Migrating to ChangeRequests (20131108161300)
+  [1m[36m (303.2ms)[0m  [1mALTER TABLE `requests` DROP `resource_id_id`[0m
+  [1m[35mSQL (71.6ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20131108161300'
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to ChangeRequests (20131108161300)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to ChangeRequests (20131108161300)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to AddRequests (20131108161300)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to ChangeRequests (20131108161300)
+  [1m[35m (296.1ms)[0m  ALTER TABLE `requests` ADD `resource_id_id` int(11)
+  [1m[36m (291.2ms)[0m  [1mCREATE INDEX `index_requests_on_resource_id_id` ON `requests` (`resource_id_id`) [0m
+  [1m[35m (8.3ms)[0m  BEGIN
+  [1m[36mSQL (18.8ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20131108161300')[0m
+  [1m[35m (49.1ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+Migrating to ChangeRequests (20131108161300)
+  [1m[36m (205.1ms)[0m  [1mALTER TABLE `requests` DROP `resource_id_id`[0m
+  [1m[35mSQL (50.0ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20131108161300'
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to ChangeRequests (20131108161300)
+  [1m[35m (249.3ms)[0m  ALTER TABLE `requests` ADD `resource_id_id` int(11)
+  [1m[36m (209.2ms)[0m  [1mCREATE INDEX `index_requests_on_resource_id_id` ON `requests` (`resource_id_id`) [0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20131108161300')[0m
+  [1m[35m (35.8ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+Migrating to ChangeRequests (20131108161300)
+  [1m[36m (495.3ms)[0m  [1mALTER TABLE `requests` DROP `resource_id_id`[0m
+  [1m[35mSQL (34.5ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20131108161300'
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+Migrating to CreateResources (20131108143600)
+  [1m[36m (48.0ms)[0m  [1mDROP TABLE `resources`[0m
+  [1m[35mSQL (30.8ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20131108143600'
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateResources (20131108143600)
+  [1m[35m (118.7ms)[0m  CREATE TABLE `resources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` varchar(255), `state_resource_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108143600')
+  [1m[36m (35.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (1.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+Migrating to CreateResources (20131108143600)
+  [1m[36m (50.7ms)[0m  [1mDROP TABLE `resources`[0m
+  [1m[35mSQL (31.3ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20131108143600'
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+Migrating to CreateRequests (20131108142800)
+  [1m[36m (56.3ms)[0m  [1mDROP TABLE `requests`[0m
+  [1m[35mSQL (39.3ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20131108142800'
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateRequests (20131108142800)
+  [1m[35m (103.4ms)[0m  CREATE TABLE `requests` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `occupancy_date` datetime, `disoccupation_date` datetime, `state_request_id` int(11), `requests_id` int(11), `resource_id_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108142800')
+  [1m[36m (37.0ms)[0m  [1mCOMMIT[0m
+Migrating to CreateResources (20131108143600)
+  [1m[35m (88.0ms)[0m  CREATE TABLE `resources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` varchar(255), `state_resource_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108143600')
+  [1m[36m (27.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (1.4ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+Migrating to CreateResources (20131108143600)
+  [1m[36m (125.7ms)[0m  [1mDROP TABLE `resources`[0m
+  [1m[35mSQL (34.5ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20131108143600'
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateResources (20131108143600)
+  [1m[35m (102.7ms)[0m  CREATE TABLE `resources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` varchar(255), `state_resource_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108143600')
+  [1m[36m (41.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+Migrating to CreateResources (20131108143600)
+  [1m[36m (65.8ms)[0m  [1mDROP TABLE `resources`[0m
+  [1m[35mSQL (31.4ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20131108143600'
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+Migrating to CreateRequests (20131108142800)
+  [1m[36m (34.1ms)[0m  [1mDROP TABLE `requests`[0m
+  [1m[35mSQL (38.6ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20131108142800'
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateRequests (20131108142800)
+  [1m[35m (88.0ms)[0m  CREATE TABLE `requests` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `occupancy_date` datetime, `disoccupation_date` datetime, `state_request_id` int(11), `requests_id` int(11), `resource_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108142800')
+  [1m[36m (39.3ms)[0m  [1mCOMMIT[0m
+Migrating to CreateResources (20131108143600)
+  [1m[35m (88.2ms)[0m  CREATE TABLE `resources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` varchar(255), `state_resource_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.6ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108143600')
+  [1m[36m (43.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.9ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+Migrating to CreateResources (20131108143600)
+  [1m[36m (49.8ms)[0m  [1mDROP TABLE `resources`[0m
+  [1m[35mSQL (39.8ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20131108143600'
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+Migrating to CreateRequests (20131108142800)
+  [1m[36m (52.5ms)[0m  [1mDROP TABLE `requests`[0m
+  [1m[35mSQL (30.8ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20131108142800'
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateRequests (20131108142800)
+  [1m[35m (110.6ms)[0m  CREATE TABLE `requests` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `occupancy_date` datetime, `disoccupation_date` datetime, `state_request_id` int(11), `resource_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108142800')
+  [1m[36m (44.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateResources (20131108143600)
+  [1m[35m (71.9ms)[0m  CREATE TABLE `resources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` varchar(255), `state_resource_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108143600')
+  [1m[36m (36.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (1.0ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+Migrating to CreateResources (20131108143600)
+  [1m[36m (33.3ms)[0m  [1mDROP TABLE `resources`[0m
+  [1m[35mSQL (29.9ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20131108143600'
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+Migrating to CreateRequests (20131108142800)
+  [1m[36m (54.2ms)[0m  [1mDROP TABLE `requests`[0m
+  [1m[35mSQL (39.5ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20131108142800'
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateRequests (20131108142800)
+  [1m[35m (96.7ms)[0m  CREATE TABLE `requests` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `occupancy_date` datetime, `disoccupation_date` datetime, `state_request_id` int(11), `resource_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108142800')
+  [1m[36m (39.0ms)[0m  [1mCOMMIT[0m
+Migrating to CreateResources (20131108143600)
+  [1m[35m (80.2ms)[0m  CREATE TABLE `resources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` varchar(255), `state_resource_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108143600')
+  [1m[36m (44.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (1.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (49.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateStateRequests (20131108173900)
+  [1m[36m (294.6ms)[0m  [1mDROP TABLE `requests`[0m
+  [1m[35m (223.9ms)[0m  CREATE TABLE `requests` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `occupancy_date` datetime, `disoccupation_date` datetime, `state_request_id` int(11), `resource_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (107.7ms)[0m  [1mDROP TABLE `resources`[0m
+  [1m[35m (120.2ms)[0m  CREATE TABLE `resources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` varchar(255), `state_resource_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (39.7ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.8ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateStateRequests (20131108173900)
+  [1m[35m (121.5ms)[0m  CREATE TABLE `state_resources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.6ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (29.9ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108173900')
+  [1m[36m (31.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreateStateResources (20131108174200)
+  [1m[35m (2.0ms)[0m  CREATE TABLE `state_resources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+Mysql2::Error: Table 'state_resources' already exists: CREATE TABLE `state_resources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (135.9ms)[0m  [1mCREATE TABLE `requests` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `occupancy_date` datetime, `disoccupation_date` datetime, `state_request_id` int(11), `resource_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (71.9ms)[0m  CREATE TABLE `resources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` varchar(255), `state_resource_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (135.3ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (308.4ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`) 
+  [1m[36m (1.0ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35m (56.2ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20131108143600')
+  [1m[36m (57.7ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20131108142800')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.7ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateStateRequests (20131108173900)
+  [1m[35m (188.1ms)[0m  CREATE TABLE `state_resources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108173900')
+  [1m[36m (60.9ms)[0m  [1mCOMMIT[0m
+Migrating to CreateStateResources (20131108174200)
+  [1m[35m (1.9ms)[0m  CREATE TABLE `state_resources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+Mysql2::Error: Table 'state_resources' already exists: CREATE TABLE `state_resources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (128.8ms)[0m  [1mCREATE TABLE `requests` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `occupancy_date` datetime, `disoccupation_date` datetime, `state_request_id` int(11), `resource_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (98.2ms)[0m  CREATE TABLE `resources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` varchar(255), `state_resource_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (103.1ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (275.5ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`) 
+  [1m[36m (0.9ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35m (47.9ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20131108143600')
+  [1m[36m (57.9ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20131108142800')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.9ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateStateRequests (20131108173900)
+  [1m[35m (96.4ms)[0m  CREATE TABLE `state_request` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108173900')
+  [1m[36m (44.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreateStateResources (20131108174200)
+  [1m[35m (96.8ms)[0m  CREATE TABLE `state_resources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108174200')
+  [1m[36m (43.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.6ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
