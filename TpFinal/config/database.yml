@@ -4,12 +4,14 @@ development:
   user: root
   password: 'facuy..'
   database: organizacion_x
+
 test:
   adapter: mysql2
   host: localhost
   user: root
   password: 'facuy..'
   database: organizacion_x_test
+
 production:
   adapter: mysql2
   host: localhost

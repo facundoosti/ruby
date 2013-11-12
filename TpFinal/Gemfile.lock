@@ -50,6 +50,7 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.1.0)
+    rb-readline (0.4.2)
     sinatra (1.4.4)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -76,5 +77,6 @@ DEPENDENCIES
   minitest
   mysql2
   rack-test
+  rb-readline (~> 0.4.2)
   sinatra
   sinatra-contrib
