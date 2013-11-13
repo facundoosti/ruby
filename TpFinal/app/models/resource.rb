@@ -1,8 +1,10 @@
 class Resource < ActiveRecord::Base
-  # accessors
-  attr_accessor :name, :description
 
   # asssociations
-  has_and_belongs_to_many :requests
-  has_one :state_resource
+  has_many :requests
+
+  #validations
+  validates :name,:description,  presence: true, uniqueness: true
+  validates_associated :requests
+
 end

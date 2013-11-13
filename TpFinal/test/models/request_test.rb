@@ -5,8 +5,8 @@ describe 'request' do
   let (:request) { Request.new }
 
   describe '#new' do
-    describe 'when required attributes are not present' do
-      it 'valid? is false' do
+    describe '' do
+      it '' do
         request.valid?.must_equal false
       end
     end

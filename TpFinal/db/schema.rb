@@ -11,11 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131108174200) do
+ActiveRecord::Schema.define(version: 20131113171900) do
 
   create_table "requests", force: true do |t|
     t.datetime "occupancy_date"
     t.datetime "disoccupation_date"
+    t.boolean  "cancel"
     t.integer  "state_request_id"
     t.integer  "resource_id"
     t.datetime "created_at"
@@ -24,22 +25,20 @@ ActiveRecord::Schema.define(version: 20131108174200) do
 
   create_table "resources", force: true do |t|
     t.string   "name"
-    t.string   "description"
-    t.integer  "state_resource_id"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "state_request", force: true do |t|
+  create_table "state_requests", force: true do |t|
     t.string   "name"
-    t.string   "description"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "state_resources", force: true do |t|
-    t.string   "name"
-    t.string   "description"
+  create_table "users", force: true do |t|
+    t.string   "e_mail"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

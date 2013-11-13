@@ -324,3 +324,546 @@ Migrating to CreateStateResources (20131108174200)
   [1m[35mSQL (1.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108174200')
   [1m[36m (43.3ms)[0m  [1mCOMMIT[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.6ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (152.2ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (294.0ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateRequests (20131108142800)
+  [1m[35m (114.9ms)[0m  CREATE TABLE `requests` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `occupancy_date` datetime, `disoccupation_date` datetime, `state_request_id` int(11), `resource_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (10.1ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108142800')
+  [1m[36m (51.3ms)[0m  [1mCOMMIT[0m
+Migrating to CreateResources (20131108143600)
+  [1m[35m (72.7ms)[0m  CREATE TABLE `resources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` varchar(255), `state_resource_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108143600')
+  [1m[36m (34.9ms)[0m  [1mCOMMIT[0m
+Migrating to CreateStateRequests (20131108173900)
+  [1m[35m (81.2ms)[0m  CREATE TABLE `state_request` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108173900')
+  [1m[36m (36.3ms)[0m  [1mCOMMIT[0m
+Migrating to CreateStateResources (20131108174200)
+  [1m[35m (111.6ms)[0m  CREATE TABLE `state_resources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (9.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108174200')
+  [1m[36m (35.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.8ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (119.2ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (280.0ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateRequests (20131108142800)
+  [1m[35m (97.4ms)[0m  CREATE TABLE `requests` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `occupancy_date` datetime, `disoccupation_date` datetime, `state_request_id` int(11), `resource_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.7ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108142800')
+  [1m[36m (42.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateResources (20131108143600)
+  [1m[35m (89.4ms)[0m  CREATE TABLE `resources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108143600')
+  [1m[36m (35.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateStateResources (20131108174200)
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+Migrating to CreateResources (20131108143600)
+  [1m[36m (58.1ms)[0m  [1mDROP TABLE `resources`[0m
+  [1m[35mSQL (75.4ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20131108143600'
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+Migrating to CreateRequests (20131108142800)
+  [1m[36m (61.0ms)[0m  [1mDROP TABLE `requests`[0m
+  [1m[35mSQL (31.4ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20131108142800'
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateRequests (20131108142800)
+  [1m[35m (98.1ms)[0m  CREATE TABLE `requests` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `occupancy_date` datetime, `disoccupation_date` datetime, `state_request_id` int(11), `resource_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (15.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108142800')
+  [1m[36m (34.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateResources (20131108143600)
+  [1m[35m (73.0ms)[0m  CREATE TABLE `resources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (11.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108143600')
+  [1m[36m (33.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreateStateRequests (20131108174200)
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateStateRequests (20131108174200)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateStateRequests (20131108174200)
+  [1m[35m (127.4ms)[0m  CREATE TABLE `state_requests` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (14.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108174200')
+  [1m[36m (34.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.7ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (106.5ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (251.7ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateRequests (20131108142800)
+  [1m[35m (90.8ms)[0m  CREATE TABLE `requests` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `occupancy_date` datetime, `disoccupation_date` datetime, `state_request_id` int(11), `resource_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (24.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108142800')
+  [1m[36m (53.2ms)[0m  [1mCOMMIT[0m
+Migrating to CreateResources (20131108143600)
+  [1m[35m (73.0ms)[0m  CREATE TABLE `resources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108143600')
+  [1m[36m (36.0ms)[0m  [1mCOMMIT[0m
+Migrating to CreateStateRequests (20131108174200)
+  [1m[35m (79.7ms)[0m  CREATE TABLE `state_requests` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (8.1ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108174200')
+  [1m[36m (45.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.8ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (39.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (10.3ms)[0m  [1mINSERT INTO `resources` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 03:50:51', 'Sala en donde se realizan las conferencias en la organizacion', 'sala de conferencias', '2013-11-13 03:50:51')[0m
+  [1m[35m (39.5ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mResource Exists (19.0ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'sala de conferencias' LIMIT 1[0m
+  [1m[35mResource Exists (0.5ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Sala en donde se realizan las conferencias en la organizacion' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mResource Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'sala de conferencias' LIMIT 1[0m
+  [1m[35mResource Exists (0.3ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Sala en donde se realizan las conferencias en la organizacion' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mResource Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'sala de conferencias' LIMIT 1[0m
+  [1m[35mResource Exists (0.3ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Sala en donde se realizan las conferencias en la organizacion' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mResource Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc #{num}' LIMIT 1[0m
+  [1m[35mResource Exists (0.3ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 0' LIMIT 1
+  [1m[36mSQL (16.6ms)[0m  [1mINSERT INTO `resources` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 03:55:02', 'Computadora Personal 0', 'Pc #{num}', '2013-11-13 03:55:02')[0m
+  [1m[35m (31.4ms)[0m  COMMIT
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mResource Exists (0.8ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc #{num}' LIMIT 1
+  [1m[36mResource Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 1' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mResource Exists (0.4ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc #{num}' LIMIT 1
+  [1m[36mResource Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 2' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mResource Exists (0.5ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc #{num}' LIMIT 1
+  [1m[36mResource Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 3' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mResource Exists (0.3ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc #{num}' LIMIT 1
+  [1m[36mResource Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 4' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mResource Exists (0.4ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc #{num}' LIMIT 1
+  [1m[36mResource Exists (0.7ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 5' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mResource Exists (0.3ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc #{num}' LIMIT 1
+  [1m[36mResource Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 6' LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mResource Exists (1.0ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc #{num}' LIMIT 1
+  [1m[36mResource Exists (0.7ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 7' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mResource Exists (0.3ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc #{num}' LIMIT 1
+  [1m[36mResource Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 8' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mResource Exists (0.3ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc #{num}' LIMIT 1
+  [1m[36mResource Exists (0.7ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 9' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mResource Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'sala de conferencias' LIMIT 1[0m
+  [1m[35mResource Exists (0.5ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Sala en donde se realizan las conferencias en la organizacion' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mResource Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc ##(num)' LIMIT 1[0m
+  [1m[35mResource Exists (0.3ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 0' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mResource Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc ##(num)' LIMIT 1[0m
+  [1m[35mResource Exists (0.2ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 1' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `resources` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 03:56:18', 'Computadora Personal 1', 'Pc ##(num)', '2013-11-13 03:56:18')[0m
+  [1m[35m (53.8ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mResource Exists (0.9ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc ##(num)' LIMIT 1
+  [1m[36mResource Exists (0.8ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 2' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mResource Exists (0.5ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc ##(num)' LIMIT 1
+  [1m[36mResource Exists (0.8ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 3' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mResource Exists (0.4ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc ##(num)' LIMIT 1
+  [1m[36mResource Exists (0.8ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 4' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mResource Exists (0.5ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc ##(num)' LIMIT 1
+  [1m[36mResource Exists (0.8ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 5' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mResource Exists (0.4ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc ##(num)' LIMIT 1
+  [1m[36mResource Exists (0.8ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 6' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mResource Exists (0.6ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc ##(num)' LIMIT 1
+  [1m[36mResource Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 7' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mResource Exists (0.2ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc ##(num)' LIMIT 1
+  [1m[36mResource Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 8' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mResource Exists (0.2ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc ##(num)' LIMIT 1
+  [1m[36mResource Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 9' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mResource Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'sala de conferencias' LIMIT 1[0m
+  [1m[35mResource Exists (0.3ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Sala en donde se realizan las conferencias en la organizacion' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mResource Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc #{num}' LIMIT 1[0m
+  [1m[35mResource Exists (0.3ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal #{num}' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mResource Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc #{num}' LIMIT 1[0m
+  [1m[35mResource Exists (0.2ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal #{num}' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mResource Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc #{num}' LIMIT 1[0m
+  [1m[35mResource Exists (0.2ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal #{num}' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mResource Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc #{num}' LIMIT 1[0m
+  [1m[35mResource Exists (0.2ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal #{num}' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mResource Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc #{num}' LIMIT 1[0m
+  [1m[35mResource Exists (0.2ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal #{num}' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mResource Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'sala de conferencias' LIMIT 1[0m
+  [1m[35mResource Exists (0.2ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Sala en donde se realizan las conferencias en la organizacion' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mResource Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'sala de conferencias' LIMIT 1[0m
+  [1m[35mResource Exists (0.3ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Sala en donde se realizan las conferencias en la organizacion' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mResource Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc 0' LIMIT 1[0m
+  [1m[35mResource Exists (0.3ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 0' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mResource Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc 1' LIMIT 1[0m
+  [1m[35mResource Exists (0.4ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 1' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mResource Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc 2' LIMIT 1[0m
+  [1m[35mResource Exists (0.2ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 2' LIMIT 1
+  [1m[36mSQL (16.3ms)[0m  [1mINSERT INTO `resources` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 04:03:50', 'Computadora Personal 2', 'Pc 2', '2013-11-13 04:03:50')[0m
+  [1m[35m (54.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mResource Exists (0.4ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc 3' LIMIT 1
+  [1m[36mResource Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 3' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `resources` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 04:03:50', 'Computadora Personal 3', 'Pc 3', '2013-11-13 04:03:50')
+  [1m[36m (33.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mResource Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc 4' LIMIT 1[0m
+  [1m[35mResource Exists (0.3ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 4' LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO `resources` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 04:03:50', 'Computadora Personal 4', 'Pc 4', '2013-11-13 04:03:50')[0m
+  [1m[35m (27.2ms)[0m  COMMIT
+  [1m[36m (115.6ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (218.4ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateRequests (20131108142800)
+  [1m[35m (106.6ms)[0m  CREATE TABLE `requests` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `occupancy_date` datetime, `disoccupation_date` datetime, `state_request_id` int(11), `resource_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108142800')
+  [1m[36m (36.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateResources (20131108143600)
+  [1m[35m (80.5ms)[0m  CREATE TABLE `resources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.8ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108143600')
+  [1m[36m (34.9ms)[0m  [1mCOMMIT[0m
+Migrating to CreateStateRequests (20131108174200)
+  [1m[35m (100.2ms)[0m  CREATE TABLE `state_requests` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108174200')
+  [1m[36m (44.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.8ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mResource Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'sala de conferencias' LIMIT 1[0m
+  [1m[35mResource Exists (0.5ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Sala en donde se realizan las conferencias en la organizacion' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `resources` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 04:04:59', 'Sala en donde se realizan las conferencias en la organizacion', 'sala de conferencias', '2013-11-13 04:04:59')[0m
+  [1m[35m (32.8ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mResource Exists (0.4ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc 0' LIMIT 1
+  [1m[36mResource Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 0' LIMIT 1[0m
+  [1m[35mSQL (11.2ms)[0m  INSERT INTO `resources` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 04:04:59', 'Computadora Personal 0', 'Pc 0', '2013-11-13 04:04:59')
+  [1m[36m (31.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mResource Exists (0.8ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc 1' LIMIT 1[0m
+  [1m[35mResource Exists (0.5ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 1' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `resources` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 04:04:59', 'Computadora Personal 1', 'Pc 1', '2013-11-13 04:04:59')[0m
+  [1m[35m (31.0ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mResource Exists (0.7ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc 2' LIMIT 1
+  [1m[36mResource Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 2' LIMIT 1[0m
+  [1m[35mSQL (10.9ms)[0m  INSERT INTO `resources` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 04:04:59', 'Computadora Personal 2', 'Pc 2', '2013-11-13 04:04:59')
+  [1m[36m (37.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mResource Exists (0.7ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc 3' LIMIT 1[0m
+  [1m[35mResource Exists (0.5ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 3' LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO `resources` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 04:04:59', 'Computadora Personal 3', 'Pc 3', '2013-11-13 04:04:59')[0m
+  [1m[35m (30.1ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mResource Exists (1.3ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc 4' LIMIT 1
+  [1m[36mResource Exists (0.7ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 4' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `resources` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 04:04:59', 'Computadora Personal 4', 'Pc 4', '2013-11-13 04:04:59')
+  [1m[36m (30.0ms)[0m  [1mCOMMIT[0m
+  [1m[36m (316.3ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (242.0ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateRequests (20131108142800)
+  [1m[35m (106.8ms)[0m  CREATE TABLE `requests` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `occupancy_date` datetime, `disoccupation_date` datetime, `state_request_id` int(11), `resource_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (11.7ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108142800')
+  [1m[36m (38.9ms)[0m  [1mCOMMIT[0m
+Migrating to CreateResources (20131108143600)
+  [1m[35m (71.9ms)[0m  CREATE TABLE `resources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (14.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108143600')
+  [1m[36m (36.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateStateRequests (20131108174200)
+  [1m[35m (72.3ms)[0m  CREATE TABLE `state_requests` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108174200')
+  [1m[36m (33.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (1.1ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mResource Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'sala de conferencias' LIMIT 1[0m
+  [1m[35mResource Exists (0.3ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Sala en donde se realizan las conferencias en la organizacion' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `resources` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 04:15:31', 'Sala en donde se realizan las conferencias en la organizacion', 'sala de conferencias', '2013-11-13 04:15:31')[0m
+  [1m[35m (45.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mResource Exists (0.4ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc 0' LIMIT 1
+  [1m[36mResource Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 0' LIMIT 1[0m
+  [1m[35mSQL (11.5ms)[0m  INSERT INTO `resources` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 04:15:31', 'Computadora Personal 0', 'Pc 0', '2013-11-13 04:15:31')
+  [1m[36m (39.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mResource Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc 1' LIMIT 1[0m
+  [1m[35mResource Exists (0.3ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 1' LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO `resources` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 04:15:31', 'Computadora Personal 1', 'Pc 1', '2013-11-13 04:15:31')[0m
+  [1m[35m (27.5ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mResource Exists (0.7ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc 2' LIMIT 1
+  [1m[36mResource Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 2' LIMIT 1[0m
+  [1m[35mSQL (11.0ms)[0m  INSERT INTO `resources` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 04:15:31', 'Computadora Personal 2', 'Pc 2', '2013-11-13 04:15:31')
+  [1m[36m (45.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mResource Exists (0.7ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc 3' LIMIT 1[0m
+  [1m[35mResource Exists (0.6ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 3' LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO `resources` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 04:15:31', 'Computadora Personal 3', 'Pc 3', '2013-11-13 04:15:31')[0m
+  [1m[35m (39.2ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mResource Exists (0.8ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc 4' LIMIT 1
+  [1m[36mResource Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 4' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `resources` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 04:15:31', 'Computadora Personal 4', 'Pc 4', '2013-11-13 04:15:31')
+  [1m[36m (47.6ms)[0m  [1mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mResource Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'sala de conferencias' LIMIT 1[0m
+  [1m[35mResource Exists (0.3ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Sala en donde se realizan las conferencias en la organizacion' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mResource Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc 0' LIMIT 1[0m
+  [1m[35mResource Exists (0.3ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 0' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mResource Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc 1' LIMIT 1[0m
+  [1m[35mResource Exists (0.4ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 1' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mResource Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc 2' LIMIT 1[0m
+  [1m[35mResource Exists (0.3ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 2' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mResource Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc 3' LIMIT 1[0m
+  [1m[35mResource Exists (0.3ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 3' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mResource Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc 4' LIMIT 1[0m
+  [1m[35mResource Exists (0.3ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 4' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (10.4ms)[0m  [1mINSERT INTO `state_requests` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 04:16:08', 'Request accepted', 'Acept', '2013-11-13 04:16:08')[0m
+  [1m[35m (38.7ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `state_requests` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 04:16:08', 'Request refuded', 'Refuse', '2013-11-13 04:16:08')
+  [1m[36m (34.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO `state_requests` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 04:16:08', 'Request in standby', 'Standby', '2013-11-13 04:16:08')[0m
+  [1m[35m (28.2ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM schema_migrations[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (188.2ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (386.8ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateRequests (20131108142800)
+  [1m[35m (77.2ms)[0m  CREATE TABLE `requests` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `occupancy_date` datetime, `disoccupation_date` datetime, `state_request_id` int(11), `resource_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (16.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108142800')
+  [1m[36m (40.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateResources (20131108143600)
+  [1m[35m (91.7ms)[0m  CREATE TABLE `resources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (32.1ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108143600')
+  [1m[36m (41.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateStateRequests (20131108174200)
+  [1m[35m (85.8ms)[0m  CREATE TABLE `state_requests` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108174200')
+  [1m[36m (44.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.9ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mResource Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'sala de conferencias' LIMIT 1[0m
+  [1m[35mResource Exists (0.3ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Sala en donde se realizan las conferencias en la organizacion' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `resources` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 18:28:56', 'Sala en donde se realizan las conferencias en la organizacion', 'sala de conferencias', '2013-11-13 18:28:56')[0m
+  [1m[35m (31.7ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mResource Exists (0.5ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc 0' LIMIT 1
+  [1m[36mResource Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 0' LIMIT 1[0m
+  [1m[35mSQL (11.4ms)[0m  INSERT INTO `resources` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 18:28:57', 'Computadora Personal 0', 'Pc 0', '2013-11-13 18:28:57')
+  [1m[36m (31.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mResource Exists (0.8ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc 1' LIMIT 1[0m
+  [1m[35mResource Exists (0.6ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 1' LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO `resources` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 18:28:57', 'Computadora Personal 1', 'Pc 1', '2013-11-13 18:28:57')[0m
+  [1m[35m (29.4ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mResource Exists (0.7ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc 2' LIMIT 1
+  [1m[36mResource Exists (0.7ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 2' LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO `resources` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 18:28:57', 'Computadora Personal 2', 'Pc 2', '2013-11-13 18:28:57')
+  [1m[36m (29.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mResource Exists (0.8ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc 3' LIMIT 1[0m
+  [1m[35mResource Exists (0.6ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 3' LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO `resources` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 18:28:57', 'Computadora Personal 3', 'Pc 3', '2013-11-13 18:28:57')[0m
+  [1m[35m (30.4ms)[0m  COMMIT
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mResource Exists (0.8ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc 4' LIMIT 1
+  [1m[36mResource Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 4' LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `resources` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 18:28:57', 'Computadora Personal 4', 'Pc 4', '2013-11-13 18:28:57')
+  [1m[36m (29.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO `state_requests` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 18:28:57', 'Request accepted', 'Acept', '2013-11-13 18:28:57')[0m
+  [1m[35m (42.7ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO `state_requests` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 18:28:57', 'Request refuded', 'Refuse', '2013-11-13 18:28:57')
+  [1m[36m (41.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO `state_requests` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 18:28:57', 'Request in standby', 'Standby', '2013-11-13 18:28:57')[0m
+  [1m[35m (28.2ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (12.1ms)[0m  INSERT INTO `state_requests` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 18:28:57', 'Request canceled', 'Cancel', '2013-11-13 18:28:57')
+  [1m[36m (41.9ms)[0m  [1mCOMMIT[0m
+  [1m[36m (127.8ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (251.0ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateRequests (20131108142800)
+  [1m[35m (97.6ms)[0m  CREATE TABLE `requests` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `occupancy_date` datetime, `disoccupation_date` datetime, `cancel` tinyint(1), `state_request_id` int(11), `resource_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108142800')
+  [1m[36m (32.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreateResources (20131108143600)
+  [1m[35m (138.5ms)[0m  CREATE TABLE `resources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108143600')
+  [1m[36m (35.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateStateRequests (20131108174200)
+  [1m[35m (96.9ms)[0m  CREATE TABLE `state_requests` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108174200')
+  [1m[36m (35.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.9ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mResource Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'sala de conferencias' LIMIT 1[0m
+  [1m[35mResource Exists (0.3ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Sala en donde se realizan las conferencias en la organizacion' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `resources` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 19:14:36', 'Sala en donde se realizan las conferencias en la organizacion', 'sala de conferencias', '2013-11-13 19:14:36')[0m
+  [1m[35m (54.8ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mResource Exists (9.3ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc 0' LIMIT 1
+  [1m[36mResource Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 0' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `resources` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 19:14:36', 'Computadora Personal 0', 'Pc 0', '2013-11-13 19:14:36')
+  [1m[36m (49.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mResource Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc 1' LIMIT 1[0m
+  [1m[35mResource Exists (0.5ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 1' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `resources` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 19:14:36', 'Computadora Personal 1', 'Pc 1', '2013-11-13 19:14:36')[0m
+  [1m[35m (43.1ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mResource Exists (0.5ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc 2' LIMIT 1
+  [1m[36mResource Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 2' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `resources` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 19:14:36', 'Computadora Personal 2', 'Pc 2', '2013-11-13 19:14:36')
+  [1m[36m (43.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mResource Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc 3' LIMIT 1[0m
+  [1m[35mResource Exists (0.4ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 3' LIMIT 1
+  [1m[36mSQL (9.9ms)[0m  [1mINSERT INTO `resources` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 19:14:37', 'Computadora Personal 3', 'Pc 3', '2013-11-13 19:14:37')[0m
+  [1m[35m (42.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mResource Exists (0.5ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc 4' LIMIT 1
+  [1m[36mResource Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 4' LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO `resources` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 19:14:37', 'Computadora Personal 4', 'Pc 4', '2013-11-13 19:14:37')
+  [1m[36m (35.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO `state_requests` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 19:14:37', 'Request accepted', 'Acept', '2013-11-13 19:14:37')[0m
+  [1m[35m (30.0ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO `state_requests` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 19:14:37', 'Request refuded', 'Refuse', '2013-11-13 19:14:37')
+  [1m[36m (34.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO `state_requests` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 19:14:37', 'Request in standby', 'Standby', '2013-11-13 19:14:37')[0m
+  [1m[35m (28.4ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `state_requests` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-11-13 19:14:37', 'Request canceled', 'Cancel', '2013-11-13 19:14:37')
+  [1m[36m (28.3ms)[0m  [1mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateUsers (20131113171900)
+  [1m[35m (163.0ms)[0m  CREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `e_mail` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131113171900')
+  [1m[36m (33.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.6ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`

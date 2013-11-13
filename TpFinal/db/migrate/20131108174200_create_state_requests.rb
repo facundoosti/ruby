@@ -1,10 +1,10 @@
-class CreateResources < ActiveRecord::Migration
+class CreateStateRequests < ActiveRecord::Migration
   def change
-    create_table :resources do |t|
+    create_table :state_requests do |t|
      
       t.string :name
       t.text :description
-     
+
       t.timestamps
     end
   end
