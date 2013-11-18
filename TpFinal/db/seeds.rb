@@ -4,7 +4,7 @@ Resource.create(name: 'sala de conferencias', description: "Sala en donde se rea
 5.times do |num|
   Resource.create(name: "Pc #{num}", description: "Computadora Personal #{num}")
 end
-StateRequest.create(name: 'Acept'  , description: 'Request accepted')
-StateRequest.create(name: 'Refuse' , description: 'Request refuded')
-StateRequest.create(name: 'Standby', description: 'Request in standby')
+StateBooking.create(name: 'approved'  , description: 'Request approved')
+StateBooking.create(name: 'refuse' , description: 'Request refuded')
+StateBooking.create(name: 'pending', description: 'Request in pending')
 

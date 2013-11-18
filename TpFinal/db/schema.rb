@@ -13,11 +13,10 @@
 
 ActiveRecord::Schema.define(version: 20131113171900) do
 
-  create_table "requests", force: true do |t|
-    t.datetime "occupancy_date"
-    t.datetime "disoccupation_date"
-    t.boolean  "cancel"
-    t.integer  "state_request_id"
+  create_table "bookings", force: true do |t|
+    t.datetime "start"
+    t.datetime "end"
+    t.integer  "status_id"
     t.integer  "resource_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -30,7 +29,7 @@ ActiveRecord::Schema.define(version: 20131113171900) do
     t.datetime "updated_at"
   end
 
-  create_table "state_requests", force: true do |t|
+  create_table "state_bookings", force: true do |t|
     t.string   "name"
     t.text     "description"
     t.datetime "created_at"

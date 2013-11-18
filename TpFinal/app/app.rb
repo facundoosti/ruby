@@ -8,11 +8,15 @@ class App < Sinatra::Base
 
   # FIXME: porque hay que poner esto ??
   ActiveRecord::Base.connection
+  ActiveRecord::Base.include_root_in_json = true
 
   helpers do
+   
   end
 
   configure :development do
     register Sinatra::Reloader
+    also_reload 'app/models/*.rb'
+    also_reload 'app/controllers/*.rb'
   end
 end

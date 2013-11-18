@@ -1,4 +1,4 @@
-class StateBookings < ActiveRecord::Base
+class StateBooking < ActiveRecord::Base
   
   # asssociations
   has_many :bookings
