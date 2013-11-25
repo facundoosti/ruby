@@ -5,7 +5,7 @@ class CreateBookings < ActiveRecord::Migration
       t.datetime   :start 
       t.datetime   :end
       
-      t.references :status 
+      t.references :status
       t.references :resource
  
       t.timestamps

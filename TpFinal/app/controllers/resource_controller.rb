@@ -19,21 +19,25 @@ class App < Sinatra::Base
 
   #Listar reservas de un recurso
   get '/resources/:id_resource/bookings' do
-    #resource_id = params[:id_resource]
 
-    (params[:date].empty?) ? params[:date] = (Time.now + 1.day).to_s : params[:date]
+    date   = params[:date]
+    limit  = params[:limit]
+    status = params[:status]
+    
+    (date.empty?) ? date = (Time.now + 1.day).to_s : date
+    (limit.empty?) ? limit = "30" : limit
+    (status.empty?) ? status = "approved" : status
 
-    (params[:limit].empty?) ? params[:limit] = "30" : params[:limit]
+  #  StatusBooking.joins(:bookings).to_json
+    #Resource.find(params[:id_resource]).list_bookings(limit, status, date).to_json
 
-    (params[:status].empty?) ? params[:status] = "approved" : params[:status]
-
-    #bookings = Request.bookings_with(@resource_id,@date,@limit,@status)
+    bookings = Request.bookings_with(@resource_id,@date,@limit,@status)
   end 
   
   #Disponibilidad de un recurso a partir de una fecha
-  get '/resources/:id_resource/availability?date=YYYY-MM-DD&limit=30' do
+  get '/resources/:id_resource/availability' do
     limit = params[:limit]
-    (limit.empty?) ? limit = "10" : limit
+    (limit.empty?) ? limit = "10" : limit.
   #  reserve = Resource.find_by(resource_id: params[:id_resource]).availabilities.select( { | self | self.status.name == "approved" }).take(limit)
    # reserve.order(:start)
     Struct.new("Availability", :from, :to) 

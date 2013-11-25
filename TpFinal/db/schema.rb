@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20131113171900) do
     t.datetime "updated_at"
   end
 
-  create_table "state_bookings", force: true do |t|
+  create_table "status_bookings", force: true do |t|
     t.string   "name"
     t.text     "description"
     t.datetime "created_at"
