@@ -1,5 +1,6 @@
 class App < Sinatra::Base
   set :root, Dir.pwd
+  set :host, 'https//:localhost:9292'
 
   # ActiveRecord
   environment = ENV['RACK_ENV'] || 'development'
@@ -27,6 +28,15 @@ class App < Sinatra::Base
       end
       Time.utc(year,month,day,h,m,s)
     end
+    
+    def links operando, str, *method
+      a = [{rel: operando, uri:settings.host + str}]
+      if !(method.empty?)
+        a.first[:method]=method.first
+      end
+      a     
+    end
+
   end
 
   configure :development do

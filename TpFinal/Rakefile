@@ -6,6 +6,7 @@ require 'sinatra/contrib'
 
 Rake::TestTask.new('test') do |t|
   t.libs << "./app/models"
+  t.libs << "./app/controllers"
   t.test_files = FileList['test/**/*_test.rb']
 end
 

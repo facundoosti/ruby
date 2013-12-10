@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20131108143600) do
     t.datetime "start"
     t.datetime "end"
     t.text     "status"
+    t.text     "user"
     t.integer  "resource_id"
     t.datetime "created_at"
     t.datetime "updated_at"
