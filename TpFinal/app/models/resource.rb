@@ -2,12 +2,9 @@ class Resource < ActiveRecord::Base
   # asssociations
   has_many :bookings
 
-  #validations
-  validates :name,:description,  presence: true, uniqueness: true
-  validates_associated :bookings
-
+  #methods
   def links
-    [{rel: 'self', uri: "https//:localhost:9292/resources/#{self.id}"}]
+    self.id
   end
 
   def available_to_book?(from, to)
@@ -19,4 +16,13 @@ class Resource < ActiveRecord::Base
   def cancel_pending_bookings
     bookings.where(status: 'pending').destroy_all
   end
+  
+  def bookings_since_to date, limit
+    bookings.order(:start).where('start >= ? AND start <= ?',date,limit)  
+  end
+
+  #validations
+  validates :name,:description,  presence: true, uniqueness: true
+  validates_associated :bookings
+
 end

@@ -35,6 +35,7 @@ GEM
     backports (3.3.5)
     bond (0.4.3)
     builder (3.1.4)
+    database_cleaner (1.2.0)
     enumerize (0.7.0)
       activesupport (>= 3.2)
     erubis (2.7.0)
@@ -89,6 +90,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  database_cleaner
   enumerize
   micro_migrations!
   minitest

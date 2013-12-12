@@ -76,3 +76,68 @@ Migrating to CreateResources (20131108143600)
   [1m[35mSQL (8.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131108143600')
   [1m[36m (36.4ms)[0m  [1mCOMMIT[0m
   [1m[35mActiveRecord::SchemaMigration Load (1.0ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (48.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mResource Exists (45.4ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'sala de conferencias' LIMIT 1[0m
+  [1m[35mResource Exists (1.1ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Sala en donde se realizan las conferencias en la organizacion' LIMIT 1
+  [1m[36m (6.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mResource Exists (0.7ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc 0' LIMIT 1[0m
+  [1m[35mResource Exists (0.6ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 0' LIMIT 1
+  [1m[36mSQL (51.0ms)[0m  [1mINSERT INTO `resources` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-12-11 08:00:06', 'Computadora Personal 0', 'Pc 0', '2013-12-11 08:00:06')[0m
+  [1m[35m (74.9ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mResource Exists (0.8ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc 1' LIMIT 1
+  [1m[36mResource Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 1' LIMIT 1[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO `resources` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-12-11 08:00:06', 'Computadora Personal 1', 'Pc 1', '2013-12-11 08:00:06')
+  [1m[36m (43.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mResource Exists (0.8ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc 2' LIMIT 1[0m
+  [1m[35mResource Exists (0.6ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 2' LIMIT 1
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO `resources` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-12-11 08:00:06', 'Computadora Personal 2', 'Pc 2', '2013-12-11 08:00:06')[0m
+  [1m[35m (38.5ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mResource Exists (1.4ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc 3' LIMIT 1
+  [1m[36mResource Exists (0.9ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 3' LIMIT 1[0m
+  [1m[35mSQL (10.0ms)[0m  INSERT INTO `resources` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-12-11 08:00:06', 'Computadora Personal 3', 'Pc 3', '2013-12-11 08:00:06')
+  [1m[36m (37.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mResource Exists (0.9ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'Pc 4' LIMIT 1[0m
+  [1m[35mResource Exists (0.6ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Computadora Personal 4' LIMIT 1
+  [1m[36mSQL (22.3ms)[0m  [1mINSERT INTO `resources` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-12-11 08:00:06', 'Computadora Personal 4', 'Pc 4', '2013-12-11 08:00:06')[0m
+  [1m[35m (41.6ms)[0m  COMMIT
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mResource Exists (0.8ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'sala de conferencias' LIMIT 1
+  [1m[36mResource Exists (0.8ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Sala en donde se realizan las conferencias en la organizacion' LIMIT 1[0m
+  [1m[35mSQL (18.3ms)[0m  INSERT INTO `bookings` (`created_at`, `end`, `start`, `status`, `updated_at`) VALUES ('2013-12-11 08:00:06', '2013-12-11 08:00:06', '2013-12-11 08:00:06', 'pending', '2013-12-11 08:00:06')
+  [1m[36m (32.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mResource Exists (0.7ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'sala de conferencias' LIMIT 1[0m
+  [1m[35mResource Exists (0.5ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Sala en donde se realizan las conferencias en la organizacion' LIMIT 1
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO `bookings` (`created_at`, `end`, `start`, `status`, `updated_at`) VALUES ('2013-12-11 08:00:06', '2013-12-11 08:00:06', '2013-12-11 08:00:06', 'pending', '2013-12-11 08:00:06')[0m
+  [1m[35m (31.5ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mResource Exists (0.4ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'sala de conferencias' LIMIT 1
+  [1m[36mResource Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Sala en donde se realizan las conferencias en la organizacion' LIMIT 1[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO `bookings` (`created_at`, `end`, `start`, `status`, `updated_at`) VALUES ('2013-12-11 08:00:06', '2013-11-13 15:00:00', '2013-11-13 14:00:00', 'pending', '2013-12-11 08:00:06')
+  [1m[36m (34.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mResource Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'sala de conferencias' LIMIT 1[0m
+  [1m[35mResource Exists (0.4ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Sala en donde se realizan las conferencias en la organizacion' LIMIT 1
+  [1m[36mSQL (9.8ms)[0m  [1mUPDATE `bookings` SET `status` = 'approved', `updated_at` = '2013-12-11 08:00:06' WHERE `bookings`.`id` = 3[0m
+  [1m[35m (32.7ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mResource Exists (0.6ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'sala de conferencias' LIMIT 1
+  [1m[36mResource Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Sala en donde se realizan las conferencias en la organizacion' LIMIT 1[0m
+  [1m[35mSQL (9.9ms)[0m  INSERT INTO `bookings` (`created_at`, `end`, `start`, `status`, `updated_at`) VALUES ('2013-12-11 08:00:06', '2013-11-13 18:00:00', '2013-11-13 17:00:00', 'pending', '2013-12-11 08:00:06')
+  [1m[36m (56.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mResource Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'sala de conferencias' LIMIT 1[0m
+  [1m[35mResource Exists (0.6ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Sala en donde se realizan las conferencias en la organizacion' LIMIT 1
+  [1m[36mSQL (2.6ms)[0m  [1mINSERT INTO `bookings` (`created_at`, `end`, `start`, `status`, `updated_at`) VALUES ('2013-12-11 08:00:07', '2013-11-14 17:00:00', '2013-11-14 14:00:00', 'pending', '2013-12-11 08:00:07')[0m
+  [1m[35m (40.8ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mResource Exists (0.6ms)[0m  SELECT 1 AS one FROM `resources` WHERE `resources`.`name` = BINARY 'sala de conferencias' LIMIT 1
+  [1m[36mResource Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM `resources` WHERE `resources`.`description` = BINARY 'Sala en donde se realizan las conferencias en la organizacion' LIMIT 1[0m
+  [1m[35mSQL (2.2ms)[0m  UPDATE `bookings` SET `status` = 'approved', `updated_at` = '2013-12-11 08:00:07' WHERE `bookings`.`id` = 5
+  [1m[36m (35.2ms)[0m  [1mCOMMIT[0m

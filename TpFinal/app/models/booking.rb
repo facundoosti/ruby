@@ -12,25 +12,9 @@ class Booking < ActiveRecord::Base
   end
 
   def links
-    [{
-          rel: "self",
-          uri: "http://localhost:9292/resources/#{self.resource.id}/bookings/#{self.id}"
-        },
-        {
-          rel: "resource",
-          uri: "http://localhost:9292/resources/#{self.resource.id}"
-        },
-        {
-          rel: "accept",
-          uri: "http://localhost:9292/resource/#{self.resource.id}/bookings/#{self.id}",
-          method: "PUT"
-        },
-        {
-          rel: "reject",
-          uri: "http://localhost:9292/resource/#{self.resource.id}/bookings/#{self.id}",
-          method: "DELETE"
-        }]
+    {id:self.id,resource_id:self.resource.id}
   end
+  
   # validations
   validates :start, presence: true 
 end
