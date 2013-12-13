@@ -16,5 +16,5 @@ class Booking < ActiveRecord::Base
   end
   
   # validations
-  validates :start, presence: true 
+  validates :start,:user, presence: true 
 end

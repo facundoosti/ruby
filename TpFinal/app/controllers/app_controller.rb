@@ -51,9 +51,14 @@ class App < Sinatra::Base
   end 
   
   # Disponibilidad de un recurso a partir de una fecha
-  get '/resources/:id_resource/availability' do
 
-    (valid_date? params[:date]) ? date = (Time.now + 1.day).utc : date = a_time(params[:date])
+  get '/resources/:id_resource/availability' do
+    #FIX: fecha me tira 3 horas desp de la hora que tendria valid_date = 'YYYY-MM-DDTHH:MM:SSZ'
+    valid_date=true
+    date =(params[:date] =~ \d\d\d\d-\d\d-\d\d\w\d\d:\d\d:\d\d\w )
+    date.nil? unless (valid_date = false if (params[:date].empty? | date.zero? ) 
+    
+    (valid_date) ? date = (Time.now + 1.day).utc : date = a_time(params[:date])
     
     params[:limit] = '3' if ((params[:limit].to_i == 0)|(params[:limit].to_i > 365)) 
     (params[:limit].empty?) ? limit = 3 : limit = params[:limit].to_i
