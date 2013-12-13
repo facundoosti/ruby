@@ -55,8 +55,11 @@ class App < Sinatra::Base
   get '/resources/:id_resource/availability' do
     #FIX: fecha me tira 3 horas desp de la hora que tendria valid_date = 'YYYY-MM-DDTHH:MM:SSZ'
     valid_date=true
-    date =(params[:date] =~ \d\d\d\d-\d\d-\d\d\w\d\d:\d\d:\d\d\w )
-    date.nil? unless (valid_date = false if (params[:date].empty? | date.zero? ) 
+    date = (params[:date] =~ /\d\d\d\d-\d\d-\d\d\w\d\d:\d\d:\d\d\w/ )
+    
+    unless date.nil?
+      valid_date = false if (params[:date].empty? | date.zero? ) 
+    end                            
     
     (valid_date) ? date = (Time.now + 1.day).utc : date = a_time(params[:date])
     
