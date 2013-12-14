@@ -11,6 +11,7 @@ class App < Sinatra::Base
   
   # Helpers
   helpers do
+    
     def a_time date, *hr 
       fecha = date.scan(/\w+/)
       year  = fecha[0].to_i
@@ -34,9 +35,7 @@ class App < Sinatra::Base
 
     def links operando, str, *method
       hash = {rel: operando, uri:settings.host + str}
-      if !(method.empty?)
-        hash[:method]=method.first
-      end
+      hash[:method] = method.first if !(method.empty?)
       hash     
     end
     
@@ -57,18 +56,17 @@ class App < Sinatra::Base
         bookings 
     end
     
+    #validators
     def status_validator
       [:approved, :pending, :all]
     end
 
-    def valid_date? param 
-      valid_date = true
-      unless param.empty? 
-        vec = param.scan(/\w+/)   
-        valid_date = false if ((param.scan(/\w/).to_enum.all?{|nro| nros.include? nro.to_i}) & (vec.first.size == 4) & (vec[1].size == 2) & (vec[1].size == 2)) 
-      end
-      (param.empty? | valid_date)
-    end  
+    def valid_date? date  #fecha con formato 'YYYY-MM-DD'
+      raise unless date.is_a? String
+      valid_date = false
+      valid_date = true if date =~ /\d\d\d\d-\d\d-\d\d/ unless (date.empty?)
+      valid_date
+    end 
 
   end
 
