@@ -1,7 +1,7 @@
 class Booking < ActiveRecord::Base
   include ActiveModel::Validations
   extend Enumerize
-  
+
   enumerize :status, in: [:approved, :pending], default: :pending
 
   # associations
@@ -17,13 +17,13 @@ class Booking < ActiveRecord::Base
   end
 
   # Class Validators 
-  class DateValidator < ActiveModel::Validator
-    def validate(record)
-      if options[:fields].any?{|field| !(record.send(field).instance_of? Time) }
-        record.errors[:base] << "This date not is Time class"
-      end
-    end
-  end  
+  #class DateValidator < ActiveModel::Validator
+  #  def validate(record)
+  #    if options[:fields].any?{|field| !(record.send(field).instance_of? Time) }
+  #      record.errors[:base] << "This date not is Time class"
+  #    end
+  #  end
+  #end  
   
   # valdations to Email
   class UserValidator < ActiveModel::EachValidator
@@ -38,6 +38,6 @@ class Booking < ActiveRecord::Base
   # validations
   validates :start, presence: true 
   validates :user, presence: true, user: true 
-  validates_with DateValidator, fields: [:start, :end]
+  #validates_with DateValidator, fields: [:start, :end]
 
 end

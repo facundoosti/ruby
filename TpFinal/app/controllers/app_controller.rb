@@ -1,18 +1,20 @@
 class App < Sinatra::Base
+  before { content_type 'application/json'}  
   # Listar todos los recursos
   get '/resources' do
-    resources = Resource.all.to_json(only: [:name, :description],methods: :links)
-    resources = JSON.parse(resources)
-    resources.each { |r| r["links"] = [links('self',"/resources/#{r["links"]}")]}
-    {resources: resources, links:[links('self',request.path)] }.to_json
+    rs = Resource.all
+    rs = rs.to_json(only: [:name, :description], methods: :links)
+    resources = JSON.parse(rs)
+    resources.each{ |r| r['links'] = [links('self', "/resources/#{r['links']}")]}
+    { resources: resources, links: [links('self', request.path)] }.to_json
   end
 
   # ver un recurso
-  get '/resources/:id_resource' do 
+  get '/resources/:id_resource' do
     begin
-      resource = JSON.parse(Resource.find(params[:id_resource]).to_json(root:true,only: [:name, :description],methods: :links ))
-      resource["resource"]["links"] = [links('self',request.path)]
-      resource["resource"]["links"] << links('bookings',"#{request.path}/bookings")
+      resource = JSON.parse(Resource.find(params[:id_resource]).to_json(root:true, only: [:name, :description], methods: :links ))
+      resource['resource']['links'] = [links('self', request.path)]
+      resource['resource']['links'] << links('bookings', "#{request.path}/bookings")
       resource.to_json
       rescue ActiveRecord::RecordNotFound => e
         halt 404
@@ -21,7 +23,6 @@ class App < Sinatra::Base
 
     # Listar reservas de un recurso
     get '/resources/:id_resource/bookings' do      
-      begin
       #validar date con:blanco,zaraza y tiene que cumplir el formato 'YYYY-MM-DD' 
       (params[:date].empty? | !(valid_date? params[:date])) ? date = (Time.now + 1.day).utc : date = a_time(params[:date])
       
@@ -31,7 +32,7 @@ class App < Sinatra::Base
       limit = date + (limit.day)
       
       #valido status
-      status_validate = status_validator.include?((params[:status].to_sym))
+      status_validate = status_validator params[:status]
       
       if (params[:status].empty? | !status_validate) 
         status = 'approved' 
@@ -40,8 +41,7 @@ class App < Sinatra::Base
       end
 
       begin
-        aux = Resource.find(params[:id_resource]).bookings_since_to(date.iso8601, limit.iso8601).select{|b| b.whith_status status }.to_json(only: [:start,:end,:status,:user],methods: :links)
-        bookings = JSON.parse(aux)
+        bookings = JSON.parse(Resource.find(params[:id_resource]).bookings_since_to(date.iso8601, limit.iso8601).select{|b| b.whith_status status }.to_json(only: [:start, :end, :status, :user], methods: :links))
         bookings = links_for_bookings(bookings) 
         {bookings: bookings , links:[links('self', request.url)]}.to_json 
       rescue ActiveRecord::RecordNotFound => e
@@ -49,9 +49,6 @@ class App < Sinatra::Base
       rescue ArgumentError
         redirect '/resources', 303
       end 
-    rescue NoMethodError
-      halt 404
-    end
   end 
   
   # Disponibilidad de un recurso a partir de una fecha
@@ -77,9 +74,9 @@ class App < Sinatra::Base
    
       bookings.each do |book|
         to = book.start
-        link = [links('book', "/resources/#{book.resource.id}/bookings", "POST")]
+        link = [links('book', "/resources/#{book.resource.id}/bookings", 'POST')]
         link << links('resource', "/resources/#{book.resource.id}")
-        hash[:availability] << {from: from,to: to, links: link}
+        hash[:availability] << {from: from, to: to, links: link}
         from = book.end
       end  
       
@@ -88,21 +85,19 @@ class App < Sinatra::Base
       end  
       
       to = limit
-      link = [links('book', "/resources/#{params[:id_resource]}/bookings", "POST")]
+      link = [links('book', "/resources/#{params[:id_resource]}/bookings", 'POST')]
       link << links('resource', "/resources/#{params[:id_resource]}")
-      hash[:availability] << {from: from,to: to, links: link}
+      hash[:availability] << {from: from, to: to, links: link}
       
       hash[:links] << [links('self', request.url)]
       hash.to_json
     rescue ActiveRecord::RecordNotFound => e
         halt 404
-    rescue NoMethodError
-        halt 404    #No hay disponibilidad de este recurso para esa fecha.
     end
   end 
   
   # reservar recurso
-  # curl -v -d "from='2013-12-03T20:39:01Z'&to='2013-11-14T14:00:00Z'" http://localhost:9292/resources/1/bookings
+  # curl -v -d 'from='2013-12-03T20:39:01Z'&to='2013-11-14T14:00:00Z'' http://localhost:9292/resources/1/bookings
   post '/resources/:id_resource/bookings' do
     begin 
       resource = Resource.find(params[:id_resource])
@@ -133,9 +128,9 @@ class App < Sinatra::Base
       booking = resource.bookings.find(params[:id_booking])
       booking.update status: :approved
       resource.cancel_pending_bookings
-      aux = booking.to_json(only: [:start, :end, :status], methods: :links)
-      book = JSON.parse(aux)
-      book["links"] = links_to_book(book["links"]["id"].to_s,book["links"]["resource_id"].to_s)
+      book = JSON.parse(booking.to_json(only: [:start, :end, :status], methods: :links))
+      book['links'] = links_to_book(book['links']['id'].to_s, book['links']['resource_id'].to_s)
+      book.replace({from:book['start'], to:book['end'], status:book['status'], links:book['links']})
       {book:book}.to_json
     rescue ActiveRecord::RecordNotFound => e 
       halt 404
@@ -146,10 +141,9 @@ class App < Sinatra::Base
   # Fix:formato del json
   get '/resources/:id_resource/bookings/:id_booking' do
     begin
-      aux=Resource.find(params[:id_resource]).bookings.find(params[:id_booking]).to_json(only:[:start,:end,:status],methods: :links)
-      book = JSON.parse(aux)
-      book["links"] = links_to_book(book["links"]["id"].to_s,book["links"]["resource_id"].to_s)
-      {book: book}.to_json
+      book = JSON.parse(Resource.find(params[:id_resource]).bookings.find(params[:id_booking]).to_json(only:[:start, :end, :status], methods: :links))
+      book['links'] = links_to_book(book['links']['id'].to_s, book['links']['resource_id'].to_s)
+      book.replace({from:book['start'], to:book['end'], status:book['status'], links:book['links']}).to_json
     rescue ActiveRecord::RecordNotFound => e
       halt 404
     end  

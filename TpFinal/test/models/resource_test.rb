@@ -17,6 +17,15 @@ describe 'resource' do
         resource.valid?.must_equal true
       end
     end  
+
+    describe 'when attributes are present in the DB' do
+      it 'valid? is false' do
+        Resource.create name: 'Recurso', description: "Descripcion del Recurso"  
+        resource = Resource.create name: 'Recurso', description: "Descripcion del Recurso"  
+        resource.valid?.must_equal false
+      end
+    end  
+
   end
   
   describe '#links' do

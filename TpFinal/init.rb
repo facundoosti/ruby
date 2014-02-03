@@ -4,8 +4,7 @@ Bundler.require
 require 'time'
 
 #require la aplicacion
-require './app/app'
-
+require_relative './app/app'
 #require los controladores
 Dir['./app/controllers/*.rb'].sort.each { |req| require_relative req }
 
