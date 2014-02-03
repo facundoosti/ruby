@@ -10,8 +10,8 @@ gem 'enumerize', require: 'enumerize'
 
 group :test do
   gem 'rack-test', require: 'rack/test'
-  gem 'minitest', require: 'minitest/autorun'
   gem 'database_cleaner', require: 'database_cleaner'
+  gem 'minitest', require: ['minitest/autorun', 'minitest/spec']
   gem 'factory_girl', '~> 4.0', require: 'factory_girl'
 end
 
