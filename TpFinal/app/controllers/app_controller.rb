@@ -1,5 +1,4 @@
 class App < Sinatra::Base
-  before { content_type 'application/json'}  
   # Listar todos los recursos
   get '/resources' do
     rs = Resource.all
@@ -43,7 +42,7 @@ class App < Sinatra::Base
       begin
         bookings = JSON.parse(Resource.find(params[:id_resource]).bookings_since_to(date.iso8601, limit.iso8601).select{|b| b.whith_status status }.to_json(only: [:start, :end, :status, :user], methods: :links))
         bookings = links_for_bookings(bookings) 
-        {bookings: bookings , links:[links('self', request.url)]}.to_json 
+        {bookings: bookings , links:[links('self', request.path)]}.to_json 
       rescue ActiveRecord::RecordNotFound => e
         halt 404
       rescue ArgumentError

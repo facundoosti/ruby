@@ -1,6 +1,6 @@
 class App < Sinatra::Base
   set :root, Dir.pwd
-  set :host, 'https//localhost:9292'
+  set :host, 'http://localhost:9292'
 
   # ActiveRecord
   environment = ENV['RACK_ENV'] || 'development'
@@ -9,9 +9,9 @@ class App < Sinatra::Base
   ActiveRecord::Base.connection
   ActiveRecord::Base.include_root_in_json = false
 
-  after do
-    ActiveRecord::Base.connection.close
-  end
+  before { content_type 'application/json'}  
+
+  after { ActiveRecord::Base.connection.close }
   
   # Helpers
   helpers do
