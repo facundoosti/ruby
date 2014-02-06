@@ -9,7 +9,7 @@ class App < Sinatra::Base
   ActiveRecord::Base.connection
   ActiveRecord::Base.include_root_in_json = false
 
-  before { content_type 'application/json'}  
+  before { content_type :json}  
 
   after { ActiveRecord::Base.connection.close }
   

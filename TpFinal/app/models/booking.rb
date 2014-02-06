@@ -37,7 +37,7 @@ class Booking < ActiveRecord::Base
 
   # validations
   validates :start, presence: true 
-  validates :user, presence: true, user: true 
+ # validates :user, user: true 
   #validates_with DateValidator, fields: [:start, :end]
 
 end

@@ -21,6 +21,11 @@ module Helpers
     [1,2,3,4,5,6,7,8,9,0]
   end  
 
+  def render_url url
+    str = url
+    str = str[21, str.size]
+  end  
+
   def links operando, str, *method
     hash = {rel: operando, uri:settings.host + str}
     hash[:method] = method.first unless (method.empty?)
