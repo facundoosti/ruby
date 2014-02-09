@@ -21,10 +21,10 @@ class App < Sinatra::Base
 
     # Listar reservas de un recurso
   get '/resources/:id_resource/bookings' do
-    
-    params[:date] = '' if params[:date].nil?
-    params[:limit] = '' if params[:limit].nil? 
-    params[:status] = '' if params[:status].nil?  
+  
+    param :date,   String, default: ' '
+    param :limit,  String, default: ' '
+    param :status, String, default: ' '
 
     # validar date con:blanco,zaraza y tiene que cumplir el formato 'YYYY-MM-DD'
     (params[:date].empty? | !(valid_date? params[:date])) ? date = (Time.now + 1.day).utc : date = a_time(params[:date])
@@ -32,6 +32,7 @@ class App < Sinatra::Base
     # valida limit
     params[:limit] = '30' if (params[:limit].to_i == 0) | (params[:limit].to_i > 365)
     (params[:limit].empty?) ? limit = 30 : limit = params[:limit].to_i
+    data_path = "?date=#{params[:date]}&limit=#{params[:limit]}"
     limit = date + (limit.day)
 
     # valido status
@@ -42,11 +43,12 @@ class App < Sinatra::Base
     elsif status_validate
       status = params[:status]
     end
-
+    data_path = data_path+"&status=#{params[:status]}"
     begin
       bookings = JSON.parse(Resource.find(params[:id_resource]).bookings_since_to(date.iso8601, limit.iso8601).select { |b| b.whith_status status }.to_json(only: [:start, :end, :status, :user], methods: :links))
+      
       bookings = links_for_bookings(bookings)
-      { bookings: bookings , links: [links('self', render_url(request.url))] }.to_json
+      { bookings: bookings , links: [links('self', (render_url(request.url)+data_path))] }.to_json
     rescue ActiveRecord::RecordNotFound => e
       halt 404
     rescue ArgumentError
@@ -54,12 +56,13 @@ class App < Sinatra::Base
     end 
   end
 
+
   # Disponibilidad de un recurso a partir de una fecha
 
   get '/resources/:id_resource/availability' do
 
-    params[:date] = '' if params[:date].nil?
-    params[:limit] = '' if params[:limit].nil? 
+    param :date,  String, default: " "
+    param :limit, String, default:  " " 
 
     # FIX: fecha me tira 3 horas desp de la hora que tendria valid_date = 'YYYY-MM-DDTHH:MM:SSZ'
     (params[:date].empty? | !(valid_date? params[:date])) ? date = (Time.now + 1.day).utc : date = a_time(params[:date])

@@ -5,18 +5,16 @@ Bundler.require :default, ENV['RACK_ENV'].to_sym
 require File.expand_path(File.join('init'))
 require_relative '../app/helpers.rb'
 include Rack::Test::Methods
-include Helpers  
+include Helpers
 def app
   App
 end
-
 
 require 'time'
 
 DatabaseCleaner.strategy = :transaction
 
 class MiniTest::Spec
-
   before :each do
     DatabaseCleaner.start
   end
@@ -25,4 +23,3 @@ class MiniTest::Spec
     DatabaseCleaner.clean
   end
 end
-

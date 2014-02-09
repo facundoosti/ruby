@@ -1,6 +1,6 @@
 class Resource < ActiveRecord::Base
   # asssociations
-  has_many :bookings
+  has_many :bookings, inverse_of: :resource
 
   #methods
   def links

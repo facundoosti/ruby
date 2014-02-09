@@ -14,6 +14,7 @@ class App < Sinatra::Base
   after { ActiveRecord::Base.connection.close }
   
   # Helpers
+  helpers Sinatra::Param
   helpers do
       require_relative './helpers.rb'  #Nose porq no lo carga en el init.rb 
       include Helpers    

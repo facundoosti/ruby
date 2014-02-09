@@ -1,16 +1,10 @@
 development:
-  adapter: mysql2
-  host: localhost  #addr:181.166.1.114
-  username: root
-  password: 'facuy..'
-  database: organizacion_x
+  adapter: sqlite3
+  database: db/organizacion_x
 
 test:
-  adapter: mysql2
-  host: localhost #addr:181.166.1.114
-  username: root
-  password: 'facuy..'
-  database: organizacion_x_test
+  adapter: sqlite3
+  database: db/organizacion_x_test
 
 production:
   adapter: mysql2

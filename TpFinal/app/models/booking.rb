@@ -15,16 +15,8 @@ class Booking < ActiveRecord::Base
   def links
     {id:self.id,resource_id:self.resource.id}
   end
-
-  # Class Validators 
-  #class DateValidator < ActiveModel::Validator
-  #  def validate(record)
-  #    if options[:fields].any?{|field| !(record.send(field).instance_of? Time) }
-  #      record.errors[:base] << "This date not is Time class"
-  #    end
-  #  end
-  #end  
-  
+ 
+=begin 
   # valdations to Email
   class UserValidator < ActiveModel::EachValidator
     def validate_each(record, attribute, value)
@@ -34,10 +26,10 @@ class Booking < ActiveRecord::Base
     end
  end
   
-
+=end
   # validations
   validates :start, presence: true 
+  validates :resource, presence: true
  # validates :user, user: true 
-  #validates_with DateValidator, fields: [:start, :end]
 
 end

@@ -1,40 +1,40 @@
-  require File.expand_path(File.join('test', 'test_helper')) 
-  #test Helpers
+  require File.expand_path(File.join('test', 'test_helper'))
+  # test Helpers
 
-  describe '#a_time' do 
+  describe '#a_time' do
     describe "when argument is a string whithin format 'YYYY-MM-DD'" do
       it 'should return a date' do
         date = a_time('2013-12-01')
         date.must_be_instance_of Time
-      end  
-    end   
+      end
+    end
   end
 
-  describe '#status_validator' do 
-    describe "when argument is all" do
+  describe '#status_validator' do
+    describe 'when argument is all' do
       it 'should return true' do
         status_validator('all').must_equal true
       end
     end
-    describe "when argument is approved" do
+    describe 'when argument is approved' do
       it 'should return true' do
         status_validator('approved').must_equal true
       end
     end
-    describe "when argument is pending" do
+    describe 'when argument is pending' do
       it 'should return true' do
         status_validator('pending').must_equal true
       end
     end
-    describe "when argument not exist in array" do
+    describe 'when argument not exist in array' do
       it 'should return false' do
         status_validator('zaraza').wont_equal true
       end
     end
   end
 
-  describe '#valid_date?' do 
-    describe "when argument is a String" do
+  describe '#valid_date?' do
+    describe 'when argument is a String' do
       it "should return true if it satisfies the condition 'YYYY-MM-DD'" do
         valid_date?('2013-22-22').must_equal true
       end
