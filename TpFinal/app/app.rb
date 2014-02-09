@@ -1,6 +1,5 @@
 class App < Sinatra::Base
   set :root, Dir.pwd
-  set :host, 'http://localhost:9292'
 
   # ActiveRecord
   environment = ENV['RACK_ENV'] || 'development'

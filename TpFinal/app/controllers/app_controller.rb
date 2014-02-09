@@ -14,27 +14,31 @@ class App < Sinatra::Base
       resource['resource']['links'] = [links('self', request.path)]
       resource['resource']['links'] << links('bookings', "#{request.path}/bookings")
       resource.to_json
-      rescue ActiveRecord::RecordNotFound => e
-        halt 404
-      end
+    rescue ActiveRecord::RecordNotFound => e
+      halt 404
     end
+  end
+  get '/' do
+    raise (request.scheme + "://" +request.host + ":" + request.port.to_s)
+  end  
 
     # Listar reservas de un recurso
   get '/resources/:id_resource/bookings' do
   
-    param :date,   String, default: ' '
-    param :limit,  String, default: ' '
-    param :status, String, default: ' '
+    params[:date]   ||= '' 
+    params[:limit]  ||= '' 
+    params[:status] ||= '' 
 
     # validar date con:blanco,zaraza y tiene que cumplir el formato 'YYYY-MM-DD'
-    (params[:date].empty? | !(valid_date? params[:date])) ? date = (Time.now + 1.day).utc : date = a_time(params[:date])
+    (params[:date].empty? | !(valid_date? params[:date])) ? date = (Time.now + 1.day).utc : date = Date.parse(params[:date])
 
     # valida limit
     params[:limit] = '30' if (params[:limit].to_i == 0) | (params[:limit].to_i > 365)
     (params[:limit].empty?) ? limit = 30 : limit = params[:limit].to_i
-    data_path = "?date=#{params[:date]}&limit=#{params[:limit]}"
+    
+    date_path= "?date=#{date}&limit=#{limit}"
+    
     limit = date + (limit.day)
-
     # valido status
     status_validate = status_validator params[:status]
 
@@ -43,12 +47,13 @@ class App < Sinatra::Base
     elsif status_validate
       status = params[:status]
     end
-    data_path = data_path+"&status=#{params[:status]}"
+    date_path = date_path +"&status=#{status}"
+
     begin
       bookings = JSON.parse(Resource.find(params[:id_resource]).bookings_since_to(date.iso8601, limit.iso8601).select { |b| b.whith_status status }.to_json(only: [:start, :end, :status, :user], methods: :links))
       
       bookings = links_for_bookings(bookings)
-      { bookings: bookings , links: [links('self', (render_url(request.url)+data_path))] }.to_json
+      { bookings: bookings , links: [links('self', request.path+date_path)] }.to_json
     rescue ActiveRecord::RecordNotFound => e
       halt 404
     rescue ArgumentError
@@ -56,21 +61,24 @@ class App < Sinatra::Base
     end 
   end
 
-
+  get '/' do
+    params[:name] = '' if params[:name].nil?
+    raise params[:name].empty?.inspect
+  end  
   # Disponibilidad de un recurso a partir de una fecha
 
   get '/resources/:id_resource/availability' do
 
-    param :date,  String, default: " "
-    param :limit, String, default:  " " 
+    params[:date]  ||= '' 
+    params[:limit] ||= '' 
 
     # FIX: fecha me tira 3 horas desp de la hora que tendria valid_date = 'YYYY-MM-DDTHH:MM:SSZ'
-    (params[:date].empty? | !(valid_date? params[:date])) ? date = (Time.now + 1.day).utc : date = a_time(params[:date])
+    (params[:date].empty? | !(valid_date? params[:date])) ? date = (Time.now + 1.day).utc : date = Date.parse(params[:date])
 
     params[:limit] = '3' if (params[:limit].to_i == 0) | (params[:limit].to_i > 365)
     (params[:limit].empty?) ? limit = 3 : limit = params[:limit].to_i
     limit = date + (limit.day)
-
+    date_path= "?date=#{date}&limit=#{limit}"
 
     begin
       bookings = Resource.find(params[:id_resource]).bookings_approved_since(date.iso8601, limit.iso8601)
@@ -107,7 +115,7 @@ class App < Sinatra::Base
 
     end  
 
-    hash[:links] << [links('self', render_url(request.url))]
+    hash[:links] << [links('self', request.path+date_path)]
     hash.to_json
   end
 

@@ -1,33 +1,15 @@
 module Helpers
 
-  def a_time date, *hr 
-    fecha = date.scan(/\w+/)
-    year  = fecha[0].to_i
-    month =fecha[1].to_i
-    day   =fecha[2].to_i
-    if hr.nil?
-      h=0
-      m=0
-      s=0
-    else
-      h=fecha[3].to_i
-      m=fecha[4].to_i
-      s=fecha[5].to_i
-    end
-    Time.utc(year,month,day,h,m,s)
-  end
-      
   def nros
     [1,2,3,4,5,6,7,8,9,0]
   end  
 
-  def render_url url
-    str = url
-    str = str[21, str.size]
-  end  
-
+  def host
+    request.scheme + "://" +request.host + ":" + request.port.to_s
+  end 
+    
   def links operando, str, *method
-    hash = {rel: operando, uri:settings.host + str}
+    hash = {rel: operando, uri:host + str}
     hash[:method] = method.first unless (method.empty?)
     hash     
   end

@@ -1,15 +1,6 @@
   require File.expand_path(File.join('test', 'test_helper'))
   # test Helpers
 
-  describe '#a_time' do
-    describe "when argument is a string whithin format 'YYYY-MM-DD'" do
-      it 'should return a date' do
-        date = a_time('2013-12-01')
-        date.must_be_instance_of Time
-      end
-    end
-  end
-
   describe '#status_validator' do
     describe 'when argument is all' do
       it 'should return true' do
