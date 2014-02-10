@@ -1,5 +1,5 @@
   require File.expand_path(File.join('test', 'test_helper'))
-  # test Helpers
+  include Helpers# test Helpers
 
   describe '#status_validator' do
     describe 'when argument is all' do

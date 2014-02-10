@@ -4519,3 +4519,258 @@ Migrating to CreateResources (20131108143600)
   [1m[35m (0.2ms)[0m  begin transaction
   [1m[36mSQL (1.0ms)[0m  [1mUPDATE "bookings" SET "status" = ?, "updated_at" = ? WHERE "bookings"."id" = 7[0m  [["status", "approved"], ["updated_at", Fri, 07 Feb 2014 21:48:13 UTC +00:00]]
   [1m[35m (96.3ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mResource Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "resources" WHERE "resources"."name" = 'sala de conferencias' LIMIT 1[0m
+  [1m[35mResource Exists (0.2ms)[0m  SELECT 1 AS one FROM "resources" WHERE "resources"."description" = 'Sala en donde se realizan las conferencias en la organizacion' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mResource Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "resources" WHERE "resources"."name" = 'Pc 0' LIMIT 1[0m
+  [1m[35mResource Exists (0.1ms)[0m  SELECT 1 AS one FROM "resources" WHERE "resources"."description" = 'Computadora Personal 0' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mResource Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "resources" WHERE "resources"."name" = 'Pc 1' LIMIT 1[0m
+  [1m[35mResource Exists (0.1ms)[0m  SELECT 1 AS one FROM "resources" WHERE "resources"."description" = 'Computadora Personal 1' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mResource Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "resources" WHERE "resources"."name" = 'Pc 2' LIMIT 1[0m
+  [1m[35mResource Exists (0.1ms)[0m  SELECT 1 AS one FROM "resources" WHERE "resources"."description" = 'Computadora Personal 2' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mResource Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "resources" WHERE "resources"."name" = 'Pc 3' LIMIT 1[0m
+  [1m[35mResource Exists (0.1ms)[0m  SELECT 1 AS one FROM "resources" WHERE "resources"."description" = 'Computadora Personal 3' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mResource Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "resources" WHERE "resources"."name" = 'Pc 4' LIMIT 1[0m
+  [1m[35mResource Exists (0.1ms)[0m  SELECT 1 AS one FROM "resources" WHERE "resources"."description" = 'Computadora Personal 4' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mResource Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "resources" WHERE "resources"."name" = 'Aula Magna' LIMIT 1[0m
+  [1m[35mResource Exists (0.1ms)[0m  SELECT 1 AS one FROM "resources" WHERE "resources"."description" = 'Sala de dictado de conferencias magnas' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mResource Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "resources" WHERE "resources"."name" = 'sala de conferencias' LIMIT 1[0m
+  [1m[35mResource Exists (0.1ms)[0m  SELECT 1 AS one FROM "resources" WHERE "resources"."description" = 'Sala en donde se realizan las conferencias en la organizacion' LIMIT 1
+  [1m[36mSQL (2.5ms)[0m  [1mINSERT INTO "bookings" ("created_at", "end", "start", "status", "updated_at", "user") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sun, 09 Feb 2014 23:27:31 UTC +00:00], ["end", Sun, 13 Jan 2013 15:00:00 UTC +00:00], ["start", Sun, 13 Jan 2013 14:00:00 UTC +00:00], ["status", "pending"], ["updated_at", Sun, 09 Feb 2014 23:27:31 UTC +00:00], ["user", "user@user.com"]]
+  [1m[35m (134.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mResource Exists (0.2ms)[0m  SELECT 1 AS one FROM "resources" WHERE "resources"."name" = 'sala de conferencias' LIMIT 1
+  [1m[36mResource Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "resources" WHERE "resources"."description" = 'Sala en donde se realizan las conferencias en la organizacion' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "bookings" ("created_at", "end", "start", "status", "updated_at", "user") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sun, 09 Feb 2014 23:27:31 UTC +00:00], ["end", Sun, 13 Jan 2013 20:00:00 UTC +00:00], ["start", Sun, 13 Jan 2013 17:00:00 UTC +00:00], ["status", "pending"], ["updated_at", Sun, 09 Feb 2014 23:27:31 UTC +00:00], ["user", "user@user.com"]]
+  [1m[36m (137.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mResource Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "resources" WHERE "resources"."name" = 'sala de conferencias' LIMIT 1[0m
+  [1m[35mResource Exists (0.1ms)[0m  SELECT 1 AS one FROM "resources" WHERE "resources"."description" = 'Sala en donde se realizan las conferencias en la organizacion' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "bookings" ("created_at", "end", "start", "status", "updated_at", "user") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sun, 09 Feb 2014 23:27:32 UTC +00:00], ["end", Sun, 13 Jan 2013 23:00:00 UTC +00:00], ["start", Sun, 13 Jan 2013 21:00:00 UTC +00:00], ["status", "pending"], ["updated_at", Sun, 09 Feb 2014 23:27:32 UTC +00:00], ["user", "user@user.com"]]
+  [1m[35m (127.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mResource Exists (0.2ms)[0m  SELECT 1 AS one FROM "resources" WHERE "resources"."name" = 'sala de conferencias' LIMIT 1
+  [1m[36mResource Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "resources" WHERE "resources"."description" = 'Sala en donde se realizan las conferencias en la organizacion' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "bookings" ("created_at", "end", "start", "status", "updated_at", "user") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sun, 09 Feb 2014 23:27:32 UTC +00:00], ["end", Tue, 15 Jan 2013 23:00:00 UTC +00:00], ["start", Mon, 14 Jan 2013 21:00:00 UTC +00:00], ["status", "pending"], ["updated_at", Sun, 09 Feb 2014 23:27:32 UTC +00:00], ["user", "user@user.com"]]
+  [1m[36m (138.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mResource Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "resources" WHERE "resources"."name" = 'sala de conferencias' LIMIT 1[0m
+  [1m[35mResource Exists (0.1ms)[0m  SELECT 1 AS one FROM "resources" WHERE "resources"."description" = 'Sala en donde se realizan las conferencias en la organizacion' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "bookings" ("created_at", "end", "start", "status", "updated_at", "user") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sun, 09 Feb 2014 23:27:32 UTC +00:00], ["end", Mon, 13 Jan 2014 15:00:00 UTC +00:00], ["start", Mon, 13 Jan 2014 14:00:00 UTC +00:00], ["status", "pending"], ["updated_at", Sun, 09 Feb 2014 23:27:32 UTC +00:00], ["user", "user@user.com"]]
+  [1m[35m (162.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mResource Exists (0.2ms)[0m  SELECT 1 AS one FROM "resources" WHERE "resources"."name" = 'sala de conferencias' LIMIT 1
+  [1m[36mResource Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "resources" WHERE "resources"."description" = 'Sala en donde se realizan las conferencias en la organizacion' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "bookings" SET "status" = ?, "updated_at" = ? WHERE "bookings"."id" = 19  [["status", "approved"], ["updated_at", Sun, 09 Feb 2014 23:27:32 UTC +00:00]]
+  [1m[36m (159.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mResource Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "resources" WHERE "resources"."name" = 'sala de conferencias' LIMIT 1[0m
+  [1m[35mResource Exists (0.1ms)[0m  SELECT 1 AS one FROM "resources" WHERE "resources"."description" = 'Sala en donde se realizan las conferencias en la organizacion' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "bookings" ("created_at", "end", "start", "status", "updated_at", "user") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sun, 09 Feb 2014 23:27:32 UTC +00:00], ["end", Mon, 13 Jan 2014 23:00:00 UTC +00:00], ["start", Mon, 13 Jan 2014 21:00:00 UTC +00:00], ["status", "pending"], ["updated_at", Sun, 09 Feb 2014 23:27:32 UTC +00:00], ["user", "user@user.com"]]
+  [1m[35m (159.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mResource Exists (0.2ms)[0m  SELECT 1 AS one FROM "resources" WHERE "resources"."name" = 'sala de conferencias' LIMIT 1
+  [1m[36mResource Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "resources" WHERE "resources"."description" = 'Sala en donde se realizan las conferencias en la organizacion' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "bookings" SET "status" = ?, "updated_at" = ? WHERE "bookings"."id" = 20  [["status", "approved"], ["updated_at", Sun, 09 Feb 2014 23:27:32 UTC +00:00]]
+  [1m[36m (117.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mResource Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "resources" WHERE "resources"."name" = 'sala de conferencias' LIMIT 1[0m
+  [1m[35mResource Exists (0.1ms)[0m  SELECT 1 AS one FROM "resources" WHERE "resources"."description" = 'Sala en donde se realizan las conferencias en la organizacion' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "bookings" ("created_at", "end", "start", "status", "updated_at", "user") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sun, 09 Feb 2014 23:27:32 UTC +00:00], ["end", Tue, 14 Jan 2014 15:00:00 UTC +00:00], ["start", Tue, 14 Jan 2014 14:00:00 UTC +00:00], ["status", "pending"], ["updated_at", Sun, 09 Feb 2014 23:27:32 UTC +00:00], ["user", "user@user.com"]]
+  [1m[35m (127.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mResource Exists (0.2ms)[0m  SELECT 1 AS one FROM "resources" WHERE "resources"."name" = 'sala de conferencias' LIMIT 1
+  [1m[36mResource Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "resources" WHERE "resources"."description" = 'Sala en donde se realizan las conferencias en la organizacion' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "bookings" SET "status" = ?, "updated_at" = ? WHERE "bookings"."id" = 21  [["status", "approved"], ["updated_at", Sun, 09 Feb 2014 23:27:33 UTC +00:00]]
+  [1m[36m (128.4ms)[0m  [1mcommit transaction[0m
+  [1m[36m (137.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (122.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateBookings (20131108142800)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "bookings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "start" datetime, "end" datetime, "status" text, "user" text, "resource_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131108142800"]]
+  [1m[36m (122.0ms)[0m  [1mcommit transaction[0m
+Migrating to CreateResources (20131108143600)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "resources" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131108143600"]]
+  [1m[36m (162.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mResource Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "resources" WHERE "resources"."name" = 'sala de conferencias' LIMIT 1[0m
+  [1m[35mResource Exists (0.1ms)[0m  SELECT 1 AS one FROM "resources" WHERE "resources"."description" = 'Sala en donde se realizan las conferencias en la organizacion' LIMIT 1
+  [1m[36mSQL (3.2ms)[0m  [1mINSERT INTO "resources" ("created_at", "description", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Mon, 10 Feb 2014 00:27:19 UTC +00:00], ["description", "Sala en donde se realizan las conferencias en la organizacion"], ["name", "sala de conferencias"], ["updated_at", Mon, 10 Feb 2014 00:27:19 UTC +00:00]]
+  [1m[35m (154.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mResource Exists (0.2ms)[0m  SELECT 1 AS one FROM "resources" WHERE "resources"."name" = 'Pc 0' LIMIT 1
+  [1m[36mResource Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "resources" WHERE "resources"."description" = 'Computadora Personal 0' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "resources" ("created_at", "description", "name", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Mon, 10 Feb 2014 00:27:19 UTC +00:00], ["description", "Computadora Personal 0"], ["name", "Pc 0"], ["updated_at", Mon, 10 Feb 2014 00:27:19 UTC +00:00]]
+  [1m[36m (128.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mResource Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "resources" WHERE "resources"."name" = 'Pc 1' LIMIT 1[0m
+  [1m[35mResource Exists (0.1ms)[0m  SELECT 1 AS one FROM "resources" WHERE "resources"."description" = 'Computadora Personal 1' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "resources" ("created_at", "description", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Mon, 10 Feb 2014 00:27:19 UTC +00:00], ["description", "Computadora Personal 1"], ["name", "Pc 1"], ["updated_at", Mon, 10 Feb 2014 00:27:19 UTC +00:00]]
+  [1m[35m (129.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mResource Exists (0.2ms)[0m  SELECT 1 AS one FROM "resources" WHERE "resources"."name" = 'Pc 2' LIMIT 1
+  [1m[36mResource Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "resources" WHERE "resources"."description" = 'Computadora Personal 2' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "resources" ("created_at", "description", "name", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Mon, 10 Feb 2014 00:27:19 UTC +00:00], ["description", "Computadora Personal 2"], ["name", "Pc 2"], ["updated_at", Mon, 10 Feb 2014 00:27:19 UTC +00:00]]
+  [1m[36m (129.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mResource Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "resources" WHERE "resources"."name" = 'Pc 3' LIMIT 1[0m
+  [1m[35mResource Exists (0.1ms)[0m  SELECT 1 AS one FROM "resources" WHERE "resources"."description" = 'Computadora Personal 3' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "resources" ("created_at", "description", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Mon, 10 Feb 2014 00:27:20 UTC +00:00], ["description", "Computadora Personal 3"], ["name", "Pc 3"], ["updated_at", Mon, 10 Feb 2014 00:27:20 UTC +00:00]]
+  [1m[35m (129.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mResource Exists (0.2ms)[0m  SELECT 1 AS one FROM "resources" WHERE "resources"."name" = 'Pc 4' LIMIT 1
+  [1m[36mResource Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "resources" WHERE "resources"."description" = 'Computadora Personal 4' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "resources" ("created_at", "description", "name", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Mon, 10 Feb 2014 00:27:20 UTC +00:00], ["description", "Computadora Personal 4"], ["name", "Pc 4"], ["updated_at", Mon, 10 Feb 2014 00:27:20 UTC +00:00]]
+  [1m[36m (129.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mResource Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "resources" WHERE "resources"."name" = 'Aula Magna' LIMIT 1[0m
+  [1m[35mResource Exists (0.1ms)[0m  SELECT 1 AS one FROM "resources" WHERE "resources"."description" = 'Sala de dictado de conferencias magnas' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "resources" ("created_at", "description", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Mon, 10 Feb 2014 00:27:20 UTC +00:00], ["description", "Sala de dictado de conferencias magnas"], ["name", "Aula Magna"], ["updated_at", Mon, 10 Feb 2014 00:27:20 UTC +00:00]]
+  [1m[35m (129.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "bookings" ("created_at", "end", "resource_id", "start", "status", "updated_at", "user") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Mon, 10 Feb 2014 00:27:20 UTC +00:00], ["end", Sun, 13 Jan 2013 15:00:00 UTC +00:00], ["resource_id", 1], ["start", Sun, 13 Jan 2013 14:00:00 UTC +00:00], ["status", "pending"], ["updated_at", Mon, 10 Feb 2014 00:27:20 UTC +00:00], ["user", "user@user.com"]]
+  [1m[36m (138.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "bookings" ("created_at", "end", "resource_id", "start", "status", "updated_at", "user") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Mon, 10 Feb 2014 00:27:20 UTC +00:00], ["end", Sun, 13 Jan 2013 20:00:00 UTC +00:00], ["resource_id", 1], ["start", Sun, 13 Jan 2013 17:00:00 UTC +00:00], ["status", "pending"], ["updated_at", Mon, 10 Feb 2014 00:27:20 UTC +00:00], ["user", "user@user.com"]]
+  [1m[35m (140.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "bookings" ("created_at", "end", "resource_id", "start", "status", "updated_at", "user") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Mon, 10 Feb 2014 00:27:20 UTC +00:00], ["end", Sun, 13 Jan 2013 23:00:00 UTC +00:00], ["resource_id", 1], ["start", Sun, 13 Jan 2013 21:00:00 UTC +00:00], ["status", "pending"], ["updated_at", Mon, 10 Feb 2014 00:27:20 UTC +00:00], ["user", "user@user.com"]]
+  [1m[36m (153.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "bookings" ("created_at", "end", "resource_id", "start", "status", "updated_at", "user") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Mon, 10 Feb 2014 00:27:20 UTC +00:00], ["end", Tue, 15 Jan 2013 23:00:00 UTC +00:00], ["resource_id", 1], ["start", Mon, 14 Jan 2013 21:00:00 UTC +00:00], ["status", "pending"], ["updated_at", Mon, 10 Feb 2014 00:27:20 UTC +00:00], ["user", "user@user.com"]]
+  [1m[35m (108.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "bookings" ("created_at", "end", "resource_id", "start", "status", "updated_at", "user") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Mon, 10 Feb 2014 00:27:21 UTC +00:00], ["end", Mon, 13 Jan 2014 15:00:00 UTC +00:00], ["resource_id", 1], ["start", Mon, 13 Jan 2014 14:00:00 UTC +00:00], ["status", "pending"], ["updated_at", Mon, 10 Feb 2014 00:27:21 UTC +00:00], ["user", "user@user.com"]]
+  [1m[36m (119.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "bookings" SET "status" = ?, "updated_at" = ? WHERE "bookings"."id" = 5[0m  [["status", "approved"], ["updated_at", Mon, 10 Feb 2014 00:27:21 UTC +00:00]]
+  [1m[35m (107.5ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "bookings" ("created_at", "end", "resource_id", "start", "status", "updated_at", "user") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Mon, 10 Feb 2014 00:27:21 UTC +00:00], ["end", Mon, 13 Jan 2014 23:00:00 UTC +00:00], ["resource_id", 1], ["start", Mon, 13 Jan 2014 21:00:00 UTC +00:00], ["status", "pending"], ["updated_at", Mon, 10 Feb 2014 00:27:21 UTC +00:00], ["user", "user@user.com"]]
+  [1m[36m (125.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "bookings" SET "status" = ?, "updated_at" = ? WHERE "bookings"."id" = 6[0m  [["status", "approved"], ["updated_at", Mon, 10 Feb 2014 00:27:21 UTC +00:00]]
+  [1m[35m (108.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "bookings" ("created_at", "end", "resource_id", "start", "status", "updated_at", "user") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Mon, 10 Feb 2014 00:27:21 UTC +00:00], ["end", Tue, 14 Jan 2014 15:00:00 UTC +00:00], ["resource_id", 1], ["start", Tue, 14 Jan 2014 14:00:00 UTC +00:00], ["status", "pending"], ["updated_at", Mon, 10 Feb 2014 00:27:21 UTC +00:00], ["user", "user@user.com"]]
+  [1m[36m (119.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "bookings" SET "status" = ?, "updated_at" = ? WHERE "bookings"."id" = 7[0m  [["status", "approved"], ["updated_at", Mon, 10 Feb 2014 00:27:21 UTC +00:00]]
+  [1m[35m (109.0ms)[0m  commit transaction
+  [1m[36m (137.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (121.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateBookings (20131108142800)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "bookings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "start" datetime, "end" datetime, "status" text, "user" text, "resource_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131108142800"]]
+  [1m[36m (154.9ms)[0m  [1mcommit transaction[0m
+Migrating to CreateResources (20131108143600)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "resources" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131108143600"]]
+  [1m[36m (151.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (146.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (119.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateBookings (20131108142800)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "bookings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "start" datetime, "end" datetime, "status" text, "user" text, "resource_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131108142800"]]
+  [1m[36m (150.0ms)[0m  [1mcommit transaction[0m
+Migrating to CreateResources (20131108143600)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "resources" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131108143600"]]
+  [1m[36m (140.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mResource Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "resources" WHERE "resources"."name" = 'sala de conferencias' LIMIT 1[0m
+  [1m[35mResource Exists (0.1ms)[0m  SELECT 1 AS one FROM "resources" WHERE "resources"."description" = 'Sala en donde se realizan las conferencias en la organizacion' LIMIT 1
+  [1m[36mSQL (26.4ms)[0m  [1mINSERT INTO "resources" ("created_at", "description", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Mon, 10 Feb 2014 20:26:54 UTC +00:00], ["description", "Sala en donde se realizan las conferencias en la organizacion"], ["name", "sala de conferencias"], ["updated_at", Mon, 10 Feb 2014 20:26:54 UTC +00:00]]
+  [1m[35m (133.2ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mResource Exists (0.4ms)[0m  SELECT 1 AS one FROM "resources" WHERE "resources"."name" = 'Pc 0' LIMIT 1
+  [1m[36mResource Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "resources" WHERE "resources"."description" = 'Computadora Personal 0' LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "resources" ("created_at", "description", "name", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Mon, 10 Feb 2014 20:26:54 UTC +00:00], ["description", "Computadora Personal 0"], ["name", "Pc 0"], ["updated_at", Mon, 10 Feb 2014 20:26:54 UTC +00:00]]
+  [1m[36m (121.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mResource Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "resources" WHERE "resources"."name" = 'Pc 1' LIMIT 1[0m
+  [1m[35mResource Exists (0.1ms)[0m  SELECT 1 AS one FROM "resources" WHERE "resources"."description" = 'Computadora Personal 1' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "resources" ("created_at", "description", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Mon, 10 Feb 2014 20:26:54 UTC +00:00], ["description", "Computadora Personal 1"], ["name", "Pc 1"], ["updated_at", Mon, 10 Feb 2014 20:26:54 UTC +00:00]]
+  [1m[35m (118.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mResource Exists (0.2ms)[0m  SELECT 1 AS one FROM "resources" WHERE "resources"."name" = 'Pc 2' LIMIT 1
+  [1m[36mResource Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "resources" WHERE "resources"."description" = 'Computadora Personal 2' LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "resources" ("created_at", "description", "name", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Mon, 10 Feb 2014 20:26:55 UTC +00:00], ["description", "Computadora Personal 2"], ["name", "Pc 2"], ["updated_at", Mon, 10 Feb 2014 20:26:55 UTC +00:00]]
+  [1m[36m (110.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mResource Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "resources" WHERE "resources"."name" = 'Pc 3' LIMIT 1[0m
+  [1m[35mResource Exists (0.1ms)[0m  SELECT 1 AS one FROM "resources" WHERE "resources"."description" = 'Computadora Personal 3' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "resources" ("created_at", "description", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Mon, 10 Feb 2014 20:26:55 UTC +00:00], ["description", "Computadora Personal 3"], ["name", "Pc 3"], ["updated_at", Mon, 10 Feb 2014 20:26:55 UTC +00:00]]
+  [1m[35m (118.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mResource Exists (0.2ms)[0m  SELECT 1 AS one FROM "resources" WHERE "resources"."name" = 'Pc 4' LIMIT 1
+  [1m[36mResource Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "resources" WHERE "resources"."description" = 'Computadora Personal 4' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "resources" ("created_at", "description", "name", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Mon, 10 Feb 2014 20:26:55 UTC +00:00], ["description", "Computadora Personal 4"], ["name", "Pc 4"], ["updated_at", Mon, 10 Feb 2014 20:26:55 UTC +00:00]]
+  [1m[36m (118.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mResource Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "resources" WHERE "resources"."name" = 'Aula Magna' LIMIT 1[0m
+  [1m[35mResource Exists (0.1ms)[0m  SELECT 1 AS one FROM "resources" WHERE "resources"."description" = 'Sala de dictado de conferencias magnas' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "resources" ("created_at", "description", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Mon, 10 Feb 2014 20:26:55 UTC +00:00], ["description", "Sala de dictado de conferencias magnas"], ["name", "Aula Magna"], ["updated_at", Mon, 10 Feb 2014 20:26:55 UTC +00:00]]
+  [1m[35m (117.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "bookings" ("created_at", "end", "resource_id", "start", "status", "updated_at", "user") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Mon, 10 Feb 2014 20:26:55 UTC +00:00], ["end", Sun, 13 Jan 2013 15:00:00 UTC +00:00], ["resource_id", 1], ["start", Sun, 13 Jan 2013 14:00:00 UTC +00:00], ["status", "pending"], ["updated_at", Mon, 10 Feb 2014 20:26:55 UTC +00:00], ["user", "user@user.com"]]
+  [1m[36m (124.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "bookings" ("created_at", "end", "resource_id", "start", "status", "updated_at", "user") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Mon, 10 Feb 2014 20:26:55 UTC +00:00], ["end", Sun, 13 Jan 2013 20:00:00 UTC +00:00], ["resource_id", 1], ["start", Sun, 13 Jan 2013 17:00:00 UTC +00:00], ["status", "pending"], ["updated_at", Mon, 10 Feb 2014 20:26:55 UTC +00:00], ["user", "user@user.com"]]
+  [1m[35m (97.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "bookings" ("created_at", "end", "resource_id", "start", "status", "updated_at", "user") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Mon, 10 Feb 2014 20:26:55 UTC +00:00], ["end", Sun, 13 Jan 2013 23:00:00 UTC +00:00], ["resource_id", 1], ["start", Sun, 13 Jan 2013 21:00:00 UTC +00:00], ["status", "pending"], ["updated_at", Mon, 10 Feb 2014 20:26:55 UTC +00:00], ["user", "user@user.com"]]
+  [1m[36m (107.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "bookings" ("created_at", "end", "resource_id", "start", "status", "updated_at", "user") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Mon, 10 Feb 2014 20:26:55 UTC +00:00], ["end", Tue, 15 Jan 2013 23:00:00 UTC +00:00], ["resource_id", 1], ["start", Mon, 14 Jan 2013 21:00:00 UTC +00:00], ["status", "pending"], ["updated_at", Mon, 10 Feb 2014 20:26:55 UTC +00:00], ["user", "user@user.com"]]
+  [1m[35m (105.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "bookings" ("created_at", "end", "resource_id", "start", "status", "updated_at", "user") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Mon, 10 Feb 2014 20:26:56 UTC +00:00], ["end", Mon, 13 Jan 2014 15:00:00 UTC +00:00], ["resource_id", 1], ["start", Mon, 13 Jan 2014 14:00:00 UTC +00:00], ["status", "pending"], ["updated_at", Mon, 10 Feb 2014 20:26:56 UTC +00:00], ["user", "user@user.com"]]
+  [1m[36m (108.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "bookings" SET "status" = ?, "updated_at" = ? WHERE "bookings"."id" = 5[0m  [["status", "approved"], ["updated_at", Mon, 10 Feb 2014 20:26:56 UTC +00:00]]
+  [1m[35m (107.6ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "bookings" ("created_at", "end", "resource_id", "start", "status", "updated_at", "user") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Mon, 10 Feb 2014 20:26:56 UTC +00:00], ["end", Mon, 13 Jan 2014 23:00:00 UTC +00:00], ["resource_id", 1], ["start", Mon, 13 Jan 2014 21:00:00 UTC +00:00], ["status", "pending"], ["updated_at", Mon, 10 Feb 2014 20:26:56 UTC +00:00], ["user", "user@user.com"]]
+  [1m[36m (104.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "bookings" SET "status" = ?, "updated_at" = ? WHERE "bookings"."id" = 6[0m  [["status", "approved"], ["updated_at", Mon, 10 Feb 2014 20:26:56 UTC +00:00]]
+  [1m[35m (108.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "bookings" ("created_at", "end", "resource_id", "start", "status", "updated_at", "user") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Mon, 10 Feb 2014 20:26:56 UTC +00:00], ["end", Tue, 14 Jan 2014 15:00:00 UTC +00:00], ["resource_id", 1], ["start", Tue, 14 Jan 2014 14:00:00 UTC +00:00], ["status", "pending"], ["updated_at", Mon, 10 Feb 2014 20:26:56 UTC +00:00], ["user", "user@user.com"]]
+  [1m[36m (108.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "bookings" SET "status" = ?, "updated_at" = ? WHERE "bookings"."id" = 7[0m  [["status", "approved"], ["updated_at", Mon, 10 Feb 2014 20:26:56 UTC +00:00]]
+  [1m[35m (108.9ms)[0m  commit transaction

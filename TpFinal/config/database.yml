@@ -1,10 +1,10 @@
 development:
   adapter: sqlite3
-  database: db/organizacion_x
+  database: db/organizacion_x.sqlite3
 
 test:
   adapter: sqlite3
-  database: db/organizacion_x_test
+  database: db/organizacion_x_test.sqlite3
 
 production:
   adapter: mysql2

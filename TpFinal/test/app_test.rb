@@ -90,7 +90,7 @@ end
 
 describe '#delete' do 
   describe '/resources/:id_resource/bookings/:id_booking' do 
-    resource=Resource.create name: 'delete', description: "Descripcion delete"
+    resource = Resource.create name: 'Resource', description: 'Description of Resource'
     booking = resource.bookings.create start: Time.now, end: Time.now
     
     server_response = delete "/resources/#{resource.id}/bookings/#{booking.id}" 
@@ -114,9 +114,10 @@ describe '#delete' do
   end
 end  
 
+
 describe '#View a booking' do 
   describe '/resources/:id_resource/bookings/:id_booking' do 
-    resource=Resource.create name: 'test8', description: "test8"
+    resource = Resource.create name: 'Resource', description: 'Description of Resource'
     booking = resource.bookings.create start: Time.now, end: Time.now
     pattern = {
                 from: /\A\d\d\d\d-\d\d-\d\d\z/,

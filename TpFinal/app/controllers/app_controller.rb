@@ -30,7 +30,7 @@ class App < Sinatra::Base
     params[:status] ||= '' 
 
     # validar date con:blanco,zaraza y tiene que cumplir el formato 'YYYY-MM-DD'
-    (params[:date].empty? | !(valid_date? params[:date])) ? date = (Time.now + 1.day).utc : date = Date.parse(params[:date])
+    (params[:date].empty? | !(valid_date? params[:date])) ? date = Date.parse((Time.now + 1.day).strftime('%F')) : date = Date.parse(params[:date])
 
     # valida limit
     params[:limit] = '30' if (params[:limit].to_i == 0) | (params[:limit].to_i > 365)
@@ -73,12 +73,13 @@ class App < Sinatra::Base
     params[:limit] ||= '' 
 
     # FIX: fecha me tira 3 horas desp de la hora que tendria valid_date = 'YYYY-MM-DDTHH:MM:SSZ'
-    (params[:date].empty? | !(valid_date? params[:date])) ? date = (Time.now + 1.day).utc : date = Date.parse(params[:date])
+    (params[:date].empty? | !(valid_date? params[:date])) ? date = Date.parse((Time.now + 1.day).strftime('%F')) : date = Date.parse(params[:date])
 
     params[:limit] = '3' if (params[:limit].to_i == 0) | (params[:limit].to_i > 365)
     (params[:limit].empty?) ? limit = 3 : limit = params[:limit].to_i
-    limit = date + (limit.day)
+
     date_path= "?date=#{date}&limit=#{limit}"
+    limit = date + (limit.day)
 
     begin
       bookings = Resource.find(params[:id_resource]).bookings_approved_since(date.iso8601, limit.iso8601)
