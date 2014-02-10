@@ -15,7 +15,7 @@ describe 'resource' do
     describe 'when required attributes are present' do
       it 'valid? is true' do
         resource = Resource.create name: 'Resource', description: 'Description of Resource'
-        resource.valid?.must_equal true
+        resource.must_be :valid?
       end
     end
 

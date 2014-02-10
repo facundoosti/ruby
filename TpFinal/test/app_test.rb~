@@ -21,17 +21,17 @@ describe '/resources' do
             }
 
   before do
-    @server_response = get '/resources'
+    server_response = get '/resources'
   end
 
   describe 'When resources are listed' do
 
     it 'Should return a body with format' do
-      @server_response.body.must_match_json_expression(pattern)
+      server_response.body.must_match_json_expression(pattern)
     end
 
     it 'Should return Status 200 OK' do
-      assert @server_response.ok?
+      assert server_response.ok?
     end
 
   end
@@ -40,15 +40,11 @@ end
 
 describe '/resources/:id_resource' do
 
+  resource = Resource.create name: 'Resource', description: 'Description of Resource'
 
   describe 'When request a resource' do
 
-  let :resource do
-    Resource.create name: 'Resource', description: 'Description of Resource'
-  end
-
-  before do
-    @pattern = {
+    pattern = {
                 resource: {
                 name: String,
                 description: String,
@@ -64,26 +60,29 @@ describe '/resources/:id_resource' do
                 ]
               }
             }
-    get "/resources/#{resource.id}" 
+
+  
+  before do
+    server_response = get "/resources/#{resource.id}" 
   end
     
     it 'Should return a body with format' do
-      last_response.body.must_match_json_expression(@pattern)
+      server_response.body.must_match_json_expression(pattern)
     end
 
     it 'Should return Status 200 OK' do
-      last_response.must_be :ok?
+      assert server_response.ok?
     end
 
   end
 
   describe 'When request a resource not found' do
     before do
-      @server_response = get "/resources/1000"  
+      server_response = get "/resources/1000"  
     end    
 
     it 'Should return Status 404 Not Found' do
-      assert @server_response.not_found?
+      assert server_response.not_found?
     end  
   end
 end
@@ -106,21 +105,21 @@ describe '#delete' do
     #resource = Resource.create name: 'Resource', description: 'Description of Resource'
     #booking = resource.bookings.create start: Time.now, end: Time.now
     
-    #@server_response = delete "/resources/#{resource.id}/bookings/#{booking.id}" 
+    #server_response = delete "/resources/#{resource.id}/bookings/#{booking.id}" 
 
     #describe 'When a reservation is canceled' do
     #  it 'the body should be empty' do
-    #    @server_response.body.must_be_empty   
+    #    server_response.body.must_be_empty   
     #  end
     #  it 'the status should be 200 OK' do
-    #    assert @server_response.ok?  
+    #    assert server_response.ok?  
     #  end
     #end
 
 =begin    describe 'When a reservation is not canceled' do
-      @server_response = delete "/resources/#{resource.id}/bookings/#{booking.id}" 
+      server_response = delete "/resources/#{resource.id}/bookings/#{booking.id}" 
       it 'the body should be 404 Not Found' do
-        assert @server_response.not_found?
+        assert server_response.not_found?
       end
     end
 =end      
@@ -158,24 +157,24 @@ describe '#View a booking' do
     #            ]
     #          }
 
-    #  @server_response = get "/resources/#{resource.id}/bookings/#{booking.id}"  
-    #  raise @server_response.body
+    #  server_response = get "/resources/#{resource.id}/bookings/#{booking.id}"  
+    #  raise server_response.body
     #  it 'Should return a body with format' do
-    #    @server_response.body.must_match_json_expression(pattern)
+    #    server_response.body.must_match_json_expression(pattern)
     #  end
 
      # it 'Should return Status 200 OK' do
-     #   assert @server_response.ok?
+     #   assert server_response.ok?
      # end
 
      # describe 'When request a resource not found' do
-     #   @server_response = get "/resources/1000/bookings/1000"  
+     #   server_response = get "/resources/1000/bookings/1000"  
         
      #   it 'Should return Status 404 Not Found' do
-     #     assert @server_response.not_found?
+     #     assert server_response.not_found?
      #   end  
      # end
-  end  
+  #end  
 end    
 end
 
